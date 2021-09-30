@@ -1,0 +1,107 @@
+<html>
+<head>
+    <title>Visuafy</title>
+</head>
+
+<style>
+    body{
+        font-family: monospace;
+        font-size: large;
+        font-style: oblique;
+        background: linear-gradient(-45deg, #b7094c, #a01a58, #892b64, #723c70, #5c4d7d, #455e89, #2e6f95, #1780a1, #0091ad, #acdcff,
+         #c5c4ff, #cbbdff, #deabff, #e4a5ff, #ada7ff, #8e94f2, #8187dc, #757bc8, #6d23b6, #973aa8, #ac46a1, #d55d92, #e01e37, #da1e37, #d00000, #d00000, #dc2f02, #e85d04, #f48c06, #faa307, #ffba08, #ffc300, #ffd000, #ffdd00, #ffea00, #eefc57, #f2f357, #f5ea57, #fcd757, #f9bf5f, #f6a766, #f38f6d, #f18371, #f07d73, #f07d73, #ef7674, #ea698b, #d55d92, #c05299, #ac46a1, #973aa8, #822faf, #6d23b6, #6411ad, #571089, #47126b, #002855, #023e7d, #4ea8de, #48bfe3, #56cfe1, #64dfdf, #72efdd, #80ffdb, #926c15, #805b10, #76520e);
+        background-size: 400% 400%;
+        animation: gradient 20s ease infinite;
+    }
+
+    mark {
+    background-color: whitesmoke;
+    color: black;
+    }
+
+    h1{
+        position: absolute;
+        bottom: 70px;
+    }
+    h3{
+        position: absolute;
+        bottom: 35px;
+    }
+    p{
+        position: absolute;
+        bottom: 2px;
+    }
+
+    img{
+        position: absolute;
+        bottom: 140px;
+        width : 15%;
+        height: 29%;
+    }
+
+    #logo{
+        height: 40px;
+        width: 140px;
+        bottom: 92%;
+        right: 9px;
+    }
+
+    button{
+        background-color: lightgreen;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 4px 2px;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+    }
+
+    .tooltip {
+   
+    display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 320px;
+}
+
+    .tooltip:hover .tooltiptext {
+    visibility: visible;
+    }
+
+
+    @keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+</style>
+
+<body>
+
+    <meta http-equiv="refresh" content="19">
+    <a href="https://open.spotify.com/" target="_blank"><img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" id="logo"></a>
+    <div class="tooltip"><img src="{{ image }}" class="img">
+        <span class="tooltiptext">{{ artist }}</span></div>
+    <h1><mark>{{ name }}</mark></h1>
+    <h3><mark>by {{ artist }}</mark></h3></body>
+    <p><button onclick="location.reload();">⟳</button><a href=/info id=test><button>i</button></a>
+
+    
+</body>
+</html>
