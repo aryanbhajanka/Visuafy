@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\LENOVO-81F401M5IN\Downloads\Aryan\Visuafy_vscode\venv
+set VIRTUAL_ENV=C:\Users\LENOVO-81F401M5IN\Downloads\Aryan\visuafy\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta charset="utf-8">
+  <title>Routing Map</title>
+  <style>
+    body { margin:0; padding:0; font-family:arial, sans }
+    .header { width:100%; margin:0 0 15px; padding:10px 15px; background:#000; color:#fff }
+    .content { margin:0; padding:0; width:100% }
+    table { border:none }
+    th { padding:3px 15px; text-align:left; font-size:14px }
+    td { padding:2px 15px; text-align:left; font-size:14px; color:#888 }
+    a, td a { color:#369; text-decoration:none }
+  </style>
+</head>
+<body>
+  <div class="header">
+    Routing Map
+  </div>
+  <div class="content">
+
+    {% if json_uri %}
+    <div style="padding:5px 15px 15px">
+      <a style="font-size:14px; font-weight:bold" href="{{json_uri}}">
+        JSON version
+      </a>
+    </div>
+    {% endif %}
+
+    <table>
+      <thead>
+        <th>URL
+        <th>Methods
+        <th>Endpoint
+      </thead>
+      <tbody>{% for route in routes %}
+        <tr>
+          <td><a href="{{route.uri}}" target="_blank">{{route.uri}}</a>
+          <td>{% for m in route.methods %} {{m}}{% endfor %}
+          <td>{{route.endpoint}}
+        </tr>{% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
