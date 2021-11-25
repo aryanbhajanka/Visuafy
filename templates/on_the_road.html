@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <title>Visuafy</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.jpg" type="image/gif" sizes="16x16">
+    </head>
+
+<style>
+     html, body{
+        font-family: monospace;
+        font-size: large;
+        font-style: oblique;
+        background-image: url('https://data.whicdn.com/images/278385875/original.gif');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-color: black;
+     }
+    mark {
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 10px;
+    padding: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    }
+
+    h1{
+        position: absolute;
+        bottom: 70px;
+    }
+    h3{
+        position: absolute;
+        bottom: 35px;
+    }
+    p{
+        position: absolute;
+        bottom: 0px;
+    }
+
+    .img{
+        position: absolute;
+        bottom: 150px;
+        width : 15%;
+        height: 29%;
+        box-shadow: 5px 10px 8px black;
+    }
+
+    #logo{
+        height: 40px;
+        width: 140px;
+        bottom: 92%;
+        right: 9px;
+    }
+
+    button{
+        background-color: black;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 4px 2px;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        color: white;
+    }
+</style>
+
+    <body>
+        <meta http-equiv="refresh" content="10">
+    <div class="tooltip"><img src="{{ image }}" class="img">
+    <h1><mark>{{ name }}</mark></h1>
+    <h3><mark>{{ artist }}</mark></h3></body>
+    <p><button onclick="location.reload();">⟳</button><a href=/info id=test><button>ⓘ</button></a><a href="/select_theme"><button>Theme</button></a>
+    </body>
+
+</html>

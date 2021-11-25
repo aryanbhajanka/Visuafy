@@ -1,0 +1,230 @@
+<html>
+<head>
+    <title>Visuafy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.jpg" type="image/gif" sizes="16x16">
+</head>
+
+<style>
+
+    body{
+        font-family: monospace;
+        font-size: large;
+        font-style: oblique;
+    }
+
+    @keyframes move-background {
+    from {
+          -webkit-transform: translate3d(0px, 0px, 0px);
+      }
+      to { 
+          -webkit-transform: translate3d(1000px, 0px, 0px);
+      }
+  }
+  @-webkit-keyframes move-background {
+    from {
+          -webkit-transform: translate3d(0px, 0px, 0px);
+      }
+      to { 
+          -webkit-transform: translate3d(1000px, 0px, 0px);
+      }
+  }
+  
+  @-moz-keyframes move-background {    
+      from {
+          -webkit-transform: translate3d(0px, 0px, 0px);
+      }
+      to { 
+          -webkit-transform: translate3d(1000px, 0px, 0px);
+      }
+  }
+  
+      @-webkit-keyframes move-background {
+      from {
+          -webkit-transform: translate3d(0px, 0px, 0px);
+      }
+      to { 
+          -webkit-transform: translate3d(1000px, 0px, 0px);
+      }
+  }
+  
+  .background-container{
+      position: fixed;
+      top: 0;
+      left:0;
+      bottom: 0;
+      right: 0;
+  }
+  
+  .stars {
+   background: black url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/stars.png) repeat;
+   position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: block;
+        z-index: 0;
+  }
+  
+  .twinkling{
+      width:10000px;
+      height: 100%;
+      background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/twinkling.png") repeat;
+      background-size: 1000px 1000px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      
+      -moz-animation:move-background 70s linear infinite;
+    -ms-animation:move-background 70s linear infinite;
+    -o-animation:move-background 70s linear infinite;
+    -webkit-animation:move-background 70s linear infinite;
+    animation:move-background 70s linear infinite;
+      
+  }
+  
+  .clouds{
+      width:10000px;
+      height: 100%;
+      background: transparent url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/clouds_repeat.png") repeat;
+      background-size: 1000px 1000px;
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 3;
+  
+     -moz-animation:move-background 150s linear infinite;
+    -ms-animation:move-background 150s linear infinite;
+    -o-animation:move-background 150s linear infinite;
+    -webkit-animation:move-background 150s linear infinite;
+    animation:move-background 150s linear infinite;
+  }
+  .bg{
+    height: 70vh;
+    width:70vh;
+    position: absolute;
+    z-index: 3;
+    right: 20px;
+  }
+
+    
+    mark {
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 10px;
+    padding: 2px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    }
+
+    h1{
+        position: absolute;
+        bottom: 70px;
+    }
+    h3{
+        position: absolute;
+        bottom: 35px;
+    }
+    p{
+        position: absolute;
+        bottom: 0px;
+    }
+
+
+    #logo{
+        height: 40px;
+        width: 140px;
+        bottom: 92%;
+        right: 9px;
+    }
+
+    button{
+        background-color: black;
+        border-radius: 8px;
+        cursor: pointer;
+        margin: 4px 2px;
+        border: none;
+        padding: 5px 10px;
+        text-align: center;
+        color: white;
+    }
+
+    .tooltip {
+        display: inline-block;
+    }
+
+    .tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  bottom: 320px;
+}
+
+    .tooltip:hover .tooltiptext {
+    visibility: visible;
+    }
+
+
+    .artist_image{
+        position: absolute;
+        bottom: 150px;
+        width : 15%;
+        height: 29%;
+        z-index: 4;
+        padding-left: 7px;
+        box-shadow: 5px 10px 8px black;
+    }
+
+    @keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+</style>
+
+<body>
+    <meta http-equiv="refresh" content="150">
+    <div class="background-container">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1231630/moon2.png" alt="" class="bg">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+    <div class="tooltip"><img src="{{ image }}" class="artist_image"></div>
+    <span class="tooltiptext">{{ artist }}</span></div>
+    <h1><mark>{{ name }}</mark></h1>
+    <h3><mark>{{ artist }}</mark></h3></body>
+    <p><button onclick="location.reload();">⟳</button><a href=/info id=test><button>ⓘ</button></a><a href="/select_theme"><button>Theme</button></a>
+
+    
+</body>
+
+<script>
+    var elem = document.documentElement;
+    function openFullscreen() {
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+    }
+    }
+</script>
+
+</html>

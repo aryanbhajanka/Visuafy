@@ -1,13 +1,11 @@
 <html>
-<head>
-    <title>Visuafy</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>Visuafy</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="logo.jpg" type="image/gif" sizes="16x16">
-</head>
-
+    </head>
 <style>
     body{
-        margin: 0px;
         font-family: monospace;
         font-size: large;
         font-style: oblique;
@@ -15,15 +13,6 @@
          #c5c4ff, #cbbdff, #deabff, #e4a5ff, #ada7ff, #8e94f2, #8187dc, #757bc8, #6d23b6, #973aa8, #ac46a1, #d55d92, #e01e37, #da1e37, #d00000, #d00000, #dc2f02, #e85d04, #f48c06, #faa307, #ffba08, #ffc300, #ffd000, #ffdd00, #ffea00, #eefc57, #f2f357, #f5ea57, #fcd757, #f9bf5f, #f6a766, #f38f6d, #f18371, #f07d73, #f07d73, #ef7674, #ea698b, #d55d92, #c05299, #ac46a1, #973aa8, #822faf, #6d23b6, #6411ad, #571089, #47126b, #002855, #023e7d, #4ea8de, #48bfe3, #56cfe1, #64dfdf, #72efdd, #80ffdb, #926c15, #805b10, #76520e);
         background-size: 400% 400%;
         animation: gradient 20s ease infinite;
-    }
-
-    mark {
-    background-color: whitesmoke;
-    color: black;
-    border-radius: 10px;
-    padding: 2px;
-    padding-top: 0px;
-    padding-bottom: 0px;
     }
 
     button{
@@ -35,8 +24,6 @@
         padding: 5px 10px;
         text-align: center;
     }
-
-
     @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -49,21 +36,22 @@
     }
 }
 </style>
-
-<body>
-    <center><br><br><br><br><br><br><br><br>
-<h1>Visuafy</h1>
-
-<br>
-<a href="javascript:void(0);" NAME="Get Token"
-title="Get Token"
-onClick=window.open("https://developer.spotify.com/console/get-users-currently-playing-track/?market=ES&additional_types=","Ratting","width=550,height=700,left=30,top=200,toolbar=0,status=0,");><button>Get Token</button></a>
-<a href="/help"><button>?</button></a>
-<br><br><br>
-<form action="{{ url_for("login")}}" method="post">
-    <input type="text" id="oauth" name="oauth" placeholder="OAuth Token">
-    <button type="submit">Go</button>
-    <br><br><h4>Tip: Visuafy works better in fullscreen. Press F11.</h4><br><br><br><br
-</center>
-</body>
+    <body><a href="/credits"><button>Sources</button></a><center><br>
+        <h1>Select Your Theme</h1>
+        <h3>Visuafy Original:</h3>
+        <a href="/moonlight"><button>Moonlight (beta)</button></a><br>
+        <a href="/colours"><button>Colours</button></a><br>
+        <a href="/leo_the_cat"><button>Leo The Cat</button></a><br>
+        <a href="/custom_image"><button>Custom Theme (new)</button></a><br>
+        <h3>Cities:</h3>
+        <a href="/la"><button>Los Angeles</button></a><br>
+        <a href="/nyc"><button>New York</button></a><br>
+        <h3>LoFi:</h3>
+        <a href="/on_the_road"><button>On The Road</button></a><br>
+        <a href="/ship"><button>By The Deck</button></a><br>
+        <a href="/homework"><button>Homework Vibes</button></a><br>
+        <a href="/by_the_window"><button>By The Window</button></a><br>
+        <a href="/comfy_night"><button>Comfy Night</button></a><br><br>
+        </center>
+    </body>
 </html>

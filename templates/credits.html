@@ -1,8 +1,8 @@
 <html>
 <head>
-    <link rel="icon" href="logo.jpg" type="image/gif" sizes="16x16">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Visuafy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.jpg" type="image/gif" sizes="16x16">
 </head>
 
 <style>
@@ -19,31 +19,16 @@
     mark {
     background-color: whitesmoke;
     color: black;
-    border-radius: 10px;
     padding: 2px;
     padding-top: 0px;
     padding-bottom: 0px;
     }
 
-    h1{
-        position: absolute;
-        bottom: 70px;
-    }
-    h3{
-        position: absolute;
-        bottom: 35px;
-    }
-    p{
-        position: absolute;
-        bottom: 0px;
-    }
-
     img{
         position: absolute;
-        bottom: 150px;
-        width : 15%;
-        height: 29%;
-        box-shadow: 5px 10px 8px black;
+        bottom: 140px;
+        width : 17%;
+        height: 35%;
     }
 
     #logo{
@@ -63,9 +48,6 @@
         text-align: center;
     }
 
-   
-
-
     @keyframes gradient {
     0% {
         background-position: 0% 50%;
@@ -80,27 +62,26 @@
 </style>
 
 <body>
-
-    <meta http-equiv="refresh" content="19">
-    <div class="tooltip"><img src="{{ image }}" class="img">
-    <h1><mark>{{ name }}</mark></h1>
-    <h3><mark>{{ artist }}</mark></h3></body>
-    <p><button onclick="location.reload();">⟳</button><a href=/info id=test><button>ⓘ</button></a><a href="/select_theme"><button>Theme</button></a>
-
+    <button onclick="goBack()">back</button>
+    <center>
+        <br><br><br>
+    <h1>Sources</h1><br><br>
     
+    <a href="https://www.youtube.com/watch?v=eR5vsN1Lq4E"><button>Los Angeles</button></a><br>
+    <a href="https://www.youtube.com/watch?v=7HaJArMDKgI"><button>New York</button></a><br>
+    <a href="https://data.whicdn.com/images/278385875/original.gif"><button>On The Road</button></a><br>
+    <a href="https://media3.giphy.com/media/Basrh159dGwKY/giphy.gif"><button>By The Deck</button></a><br>
+    <a href="https://i.pinimg.com/originals/76/09/46/7609468e97e15d1da8d14d534be7366c.gif"><button>Homework Vibes</button></a><br>
+    <a href="https://thumbs.gfycat.com/AcceptableGreedyDutchsmoushond-size_restricted.gif"><button>By The Window</button></a><br>
+    <a href="https://data.whicdn.com/images/257401742/original.gif"><button>Comfy Night</button></a><br><br>
+    <p>*Images may be subject to copyright*</p>
+    </center>
 </body>
 
 <script>
-    var elem = document.documentElement;
-    function openFullscreen() {
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.webkitRequestFullscreen) { /* Safari */
-        elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /* IE11 */
-        elem.msRequestFullscreen();
-    }
-    }
+    function goBack() {
+  window.history.back();
+}
 </script>
 
 </html>
