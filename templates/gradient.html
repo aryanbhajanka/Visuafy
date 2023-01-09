@@ -1,0 +1,259 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="{{time}}">
+    <style>
+
+body {
+  line-height: 5px;
+  margin: 0;
+	background: linear-gradient(-45deg, rgb{{a}}, rgb{{b}}, rgb{{c}}, rgb{{d}});
+	background-size: 400% 400%;
+	animation: gradient 10s ease infinite;
+  font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: x-large;
+  color: {{txt}};
+  backdrop-filter: blur(100%);
+}
+
+img {
+        -webkit-filter: drop-shadow(5px 5px 5px #000000);
+        filter: drop-shadow(5px 5px 5px #000000);
+      }
+
+.center{
+  position: absolute;
+  top:  50%;
+  left: 27%;
+  transform: translate(-27%, -50%);
+}
+p{
+  font-size: xx-large;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.row {
+  display: flex;
+  position:absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  top: 62%;
+}
+
+.column {
+  flex: 33.33%;
+  padding: 15px;
+}
+
+@media screen and (max-height: 50px) {
+  .column {
+    height: 100%;
+  }
+}
+
+button {
+    transition: all .2s ease;
+    font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 40px;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
+    border: 0;
+    color: {{txt}};
+}
+button:hover {
+  cursor: pointer;
+  border-radius: 10px;
+    background-color: #00000030;
+    color: {{txt}};
+}
+
+.track{
+  position: fixed;
+  top:  52%;
+  left: 68%;
+  transform: translate(-68%, -52%);
+  
+}
+
+.menu{
+  float: right;
+  line-height: 0;
+  transition: all .2s ease;
+    text-transform: none;
+    text-align: none;
+    line-height: none;
+    font-size: large;
+    background-color : transparent;
+    padding-right: 1.5%;
+    outline: none;
+    border: 0;
+}
+
+.menu:hover{
+  cursor: pointer;
+  background-color: #00000000;
+}
+
+#vertical-menu {
+  width: 85px;
+  float: right;
+  z-index: 1;
+  padding: 10px;
+  padding-top: 20px;
+  display: hidden;
+}
+
+#vertical-menu a {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: medium;
+  color: {{txt}};
+}
+
+#vertical-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.fs{
+  font-size: medium;
+  text-transform: none;
+  padding: 0;
+  width: 85px;
+  line-height: 0;
+}
+
+.fs:hover {
+  cursor: pointer;
+  background-color: #00000010;
+  color: white;
+}
+
+:fullscreen {
+  border: 0;
+}
+
+:-webkit-full-screen {
+  border: 0;
+}
+
+.media{
+  background-color: transparent; 
+  border: 0; 
+  font-size: 30px;
+  color: {{txt}};
+}
+
+.media:hover{
+  cursor: pointer;
+}
+    </style>
+</head>
+
+<body onload="set()">
+
+  <button class="menu" onclick="toggle()"><h1 style="float: right;">⋮</h1></button>
+
+
+  <div id="vertical-menu">
+    <a href="/">Home</a><br>
+    <button class="fs" onclick="fs()"><a>Full Sc</a></button><br><br>
+    <a href="/gradient">Refresh</a><br>
+    <a href="mailto: aryanbhajanka204@gmail.com" target="_blank">Report</a><br>
+  </div>
+
+            <div class="center">
+                    <center>
+                        <img src="{{image}}" height="330" width="330" style="border-radius: 5%;"><br>
+                      </center>
+                    
+                  </div>
+
+                  <div class="track">
+                    <center>
+                  <h1 style="line-height: 48px;">{{track}}</h1>
+                    <p>{{artist}}</p>
+                    
+                    <h1 style="letter-spacing: 5px; line-height: 10px;">
+                      <form action="{{ url_for('gradient')}}" method="POST">
+                      <input type = "submit" value = "⏮" name = "submit" class="media">
+                      <input type = "submit" value = "⏯" name = "submit" class="media">
+                      <input type = "submit" value = "⏭" name = "submit" class="media">
+                    </form>
+                    </h1>
+                  </center>
+                  </div>
+</body>
+
+<script>
+  (function() {
+    var mouseTimer = null, cursorVisible = true;
+
+    function disappearCursor() {
+        mouseTimer = null;
+        document.body.style.cursor = "none";
+        cursorVisible = false;
+    }
+
+    document.onmousemove = function() {
+        if (mouseTimer) {
+            window.clearTimeout(mouseTimer);
+        }
+        if (!cursorVisible) {
+            document.body.style.cursor = "default";
+            cursorVisible = true;
+        }
+        mouseTimer = window.setTimeout(disappearCursor, 1000);
+    };
+})();
+
+function toggle() {
+  var x = document.getElementById("vertical-menu");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function set(){
+  var x = document.getElementById("vertical-menu");
+  x.style.display = "none";
+}
+
+  function fs() {
+    var elem = document.documentElement;
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    toggle();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+    toggle();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+    toggle();
+  }
+}
+
+
+</script>
+
+
+</html>

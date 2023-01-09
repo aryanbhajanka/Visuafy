@@ -1,0 +1,220 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="{{time}}">
+    <link href='https://fonts.googleapis.com/css?family=Silkscreen' rel='stylesheet'>
+
+<style>
+
+body{
+  margin: 0;
+  padding-right: 5%;
+  background-image: url('https://img.freepik.com/free-photo/texture-background_1404-99.jpg?w=2000');
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+a{
+  text-decoration: none;
+}
+
+.art{
+  position: absolute;
+  top:  50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.art_image{
+  width: 200px;
+  height: 200px;
+  animation: rotation 2s infinite linear;
+  border-radius: 50%;
+}
+
+.record{
+  position: absolute;
+  top:  50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  -webkit-filter: drop-shadow(5px 5px 5px #000000);
+  filter: drop-shadow(5px 5px 5px #000000);
+  animation: fadeIn ease 5s;
+  -webkit-animation: fadeIn ease 5s;
+  -moz-animation: fadeIn ease 5s;
+  -o-animation: fadeIn ease 5s;
+  -ms-animation: fadeIn ease 5s;
+}
+
+.record_image{
+    height: 550px;
+    width: 550px;
+    border-radius: 50%;
+    animation: rotation 2s infinite linear; 
+}
+
+.needle{
+  position: absolute;
+  top:  35%;
+  left: 70%;
+  transform: translate(-73%, -35%);
+  z-index: 2;
+}
+
+.rod{
+  position: absolute;
+  top:  50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+}
+
+.rod_image{
+  height: 20px;
+  width: 20px;
+  animation: rotation 2s infinite linear;
+}
+
+.table{
+  height: 680px;
+  width: 880px;
+  border-radius: 3%;
+  -webkit-filter: drop-shadow(5px 5px 5px #000000);
+  filter: drop-shadow(5px 5px 5px #000000);
+}
+
+.tablel{
+  position: absolute;
+  top:  50%;
+  left: 53%;
+  transform: translate(-53%, -50%);
+}
+
+.logo{
+  color: white;
+  font-size: medium;
+  position: absolute;
+  top:  2%;
+  left: 5%;
+  transform: translate(-5%, -2%);
+}
+
+.pp{
+  position: absolute;
+  top:  75%;
+  left: 75%;
+  transform: translate(-75%, -75%);
+  font-size: x-large;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+}
+
+.next{
+  position: absolute;
+  top:  82%;
+  left: 78%;
+  transform: translate(-75%, -75%);
+  font-size: x-large;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.prev{
+  position: absolute;
+  top:  82%;
+  left: 71%;
+  transform: translate(-75%, -75%);
+  font-size: x-large;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}
+}
+  </style>
+</head>
+
+<body>
+  <div class="tablel">
+  <img src="https://img.freepik.com/premium-photo/black-metal-texture_46370-2902.jpg?w=360" class="table">
+  <a href="/"><h3 class="logo">ＶＩＳＵＡＦＹ</h3></a>
+  </div>
+  <div class="record">
+    <img src="{{record}}" class="record_image">
+
+    <div class="art">
+    <img src="{{image}}" class="art_image">
+    </div> </div>
+
+<img src="{{needle}}" class="needle">
+<div class="rod">
+<img src="{{rod}}" class="rod_image">
+</div>
+
+<form action="{{ url_for('turntable')}}" method="POST">
+  <input type = "submit" value = "⏮" name = "submit" class="prev">
+  <input type = "submit" value = "⏯" name = "submit" class="pp">
+  <input type = "submit" value = "⏭" name = "submit" class="next">
+</form>
+
+
+</body>
+
+</html>

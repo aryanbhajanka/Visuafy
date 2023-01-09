@@ -1,0 +1,144 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+  font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+  margin: 0px;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgba(51, 51, 51, 0.3);
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 15px 30px;
+  text-decoration: none;
+}
+
+li a:hover{
+  background-color: rgba(17, 17, 17, 0.4);
+}
+
+.active {
+  background-color: rgba(51, 51, 51, 0.0);
+}
+
+.button-28 {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 30%;
+  will-change: transform;
+  font-size: 1.5vw;
+}
+
+.button-28:disabled {
+  pointer-events: none;
+}
+
+.button-28:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.button-28:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.main{
+  padding-left: 3%;
+}
+
+.center{
+  position: absolute;
+  top:  42%;
+  left: 50%;
+  transform: translate(-50%, -42%);
+  width: 100%;
+}
+
+    </style>
+</head>
+
+<body>
+
+  <ul>
+    <li><p style="color: white; padding-left: 25px; padding-right: 20px;">ＶＩＳＵＡＦＹ</p></li>
+    <li><a href="https://open.spotify.com", target="_blank">Spotify</a></li>
+    <li><a href="/">About</a></li>
+    <li><a href="https://github.com/aryanbhajanka/Visuafy-2.0" target="_blank">Source</a></li>
+    <li><a href="mailto: aryanbhajanka204@gmail.com">Contact</a></li>
+    <li style="float:right"><a class="active" href="/signout">Sign Out</a></li>
+  </ul>  
+
+<div class="center">
+<div style="padding-top: 15px;"><center>
+  <h2>Hello, {{name}}</h2>
+  <h3>Select A Theme:</h3></center></div>
+
+
+  <div class="main">
+         
+          <h2 style="padding-left: 15px;">Animated:</h2>
+				<a href="/gradient" style="padding: 15px;"><button class="button-28" role="button"><h3>Gradient:</h3><h5>Minimalistic artwork colours</h5></button></a>
+        <a href="/turntable" style="padding: 15px;"><button class="button-28" role="button"><h3>Turntable:</h3><h5>Your favorites played on a vinyl record</h5></button></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target = "_blank" style="padding: 15px;"><button class="button-28" role="button"><h3 style="color: red;">Theme 3:</h3><h5 style="color: red;">Coming Soon</h5></button></a>
+<br><br><h2 style="padding-left: 15px;">Image Based:</h2> 
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target = "_blank" style="padding: 15px;"><button class="button-28" role="button"><h3 style="color: red;">Theme 4:</h3><h5 style="color: red;">Coming Soon</h5></button></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target = "_blank" style="padding: 15px;"><button class="button-28" role="button"><h3 style="color: red;">Theme 5:</h3><h5 style="color: red;">Coming Soon</h5></button></a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target = "_blank" style="padding: 15px;"><button class="button-28" role="button"><h3 style="color: red;">Custom Theme:</h3><h5 style="color: red;">Coming Soon</h5></button></a>
+      </div>
+</body>
+
+
+</html>

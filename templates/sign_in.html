@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+    font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 100px;
+    font-size: x-large;
+    color: whitesmoke;
+    
+}
+
+.center{
+  position: absolute;
+  top:  40%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+    </style>
+</head>
+
+<body>
+
+            <div class="center">
+            <center>
+               <h1>ＶＩＳＵＡＦＹ</h1>
+                <h3>Your go-to visualiser for Spotify</h3>
+                <a href="{{auth_url}}">
+                    <img src="https://images.squarespace-cdn.com/content/v1/59a6fd41bebafb8b3f420544/1519917998014-G6SW42V49ZA7JSDOZJN3/image-asset.png" height="56" width="320">
+                </a>
+            </center>
+        </div>
+
+
+
+</body>
+
+
+</html>
