@@ -1,3 +1,3 @@
 # Visuafy
-A flask based Spotify visualiser.  
+A flask based visualiser and remote for Spotify.  
 *Currently under development*
