@@ -1,5 +1,5 @@
 # Visuafy
-Visuafy is a flask based visualiser and remote for Spotify which provides playback controls and different themes to choose from.  
+**About: **Visuafy is a flask based visualiser and remote for Spotify which provides playback controls and different themes to choose from.  
   
 **Screenshots:**  
   
