@@ -28,9 +28,10 @@ a{
 }
 
 .art_image{
-  width: 200px;
-  height: 200px;
-  animation: rotation 2s infinite linear;
+  width: 180px;
+  height: 180px;
+  animation: rotation infinite linear;
+  animation-duration: {{animation}};
   border-radius: 50%;
 }
 
@@ -50,17 +51,18 @@ a{
 }
 
 .record_image{
-    height: 550px;
-    width: 550px;
+    height: 520px;
+    width: 520px;
     border-radius: 50%;
-    animation: rotation 2s infinite linear; 
+    animation: rotation infinite linear; 
+    animation-duration: {{animation}};
 }
 
 .needle{
   position: absolute;
-  top:  35%;
+  top:  38%;
   left: 70%;
-  transform: translate(-73%, -35%);
+  transform: translate(-73%, -38%);
   z-index: 2;
 }
 
@@ -73,14 +75,15 @@ a{
 }
 
 .rod_image{
-  height: 20px;
-  width: 20px;
-  animation: rotation 2s infinite linear;
+  height: 18px;
+  width: 18px;
+  animation: rotation infinite linear;
+  animation-duration: {{animation}};
 }
 
 .table{
-  height: 680px;
-  width: 880px;
+  height: 700px;
+  width: 900px;
   border-radius: 3%;
   -webkit-filter: drop-shadow(5px 5px 5px #000000);
   filter: drop-shadow(5px 5px 5px #000000);
@@ -98,41 +101,59 @@ a{
   font-size: medium;
   position: absolute;
   top:  2%;
-  left: 5%;
-  transform: translate(-5%, -2%);
+  left: 49%;
+  transform: translate(-49%, -2%);
 }
 
 .pp{
   position: absolute;
-  top:  75%;
-  left: 75%;
-  transform: translate(-75%, -75%);
-  font-size: x-large;
-  height: 70px;
-  width: 70px;
+  top:  80%;
+  left: 87.5%;
+  transform: translate(-87.5%, -80%);
+  font-size: large;
+  height: 55px;
+  width: 55px;
   border-radius: 50%;
 }
 
 .next{
   position: absolute;
-  top:  82%;
-  left: 78%;
-  transform: translate(-75%, -75%);
-  font-size: x-large;
-  height: 50px;
-  width: 50px;
+  top:  88%;
+  left: 92%;
+  transform: translate(-92%, -88%);
+  font-size: large;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
 }
 
 .prev{
   position: absolute;
-  top:  82%;
-  left: 71%;
-  transform: translate(-75%, -75%);
-  font-size: x-large;
-  height: 50px;
-  width: 50px;
+  top:  88%;
+  left: 82%;
+  transform: translate(-82%, -88%);
+  font-size: large;
+  height: 45px;
+  width: 45px;
   border-radius: 50%;
+}
+
+.screen{
+  position: absolute;
+  top:  92%;
+  left: 6.5%;
+  transform: translate(-10%, -80%);
+  width: 200px;
+  height: 40px;
+  text-align: center;
+  font-family: 'Silkscreen';
+  font-size: small;
+  color: white;
+  background-color: black;
+  border-radius: 5px;
+  z-index: 3;
+  line-height: 10px;
+  border: rgb(100, 100, 100) solid 4px;
 }
 
 @keyframes rotation {
@@ -193,8 +214,18 @@ a{
 
 <body>
   <div class="tablel">
+    <div class="screen">
+      <h3>{{track}}</h3>
+    </div>
   <img src="https://img.freepik.com/premium-photo/black-metal-texture_46370-2902.jpg?w=360" class="table">
   <a href="/"><h3 class="logo">ＶＩＳＵＡＦＹ</h3></a>
+
+  <form action="{{ url_for('turntable')}}" method="POST">
+    <input type = "submit" value = "⏮" name = "submit" class="prev">
+    <input type = "submit" value = "⏯" name = "submit" class="pp">
+    <input type = "submit" value = "⏭" name = "submit" class="next">
+  </form>
+
   </div>
   <div class="record">
     <img src="{{record}}" class="record_image">
@@ -208,13 +239,29 @@ a{
 <img src="{{rod}}" class="rod_image">
 </div>
 
-<form action="{{ url_for('turntable')}}" method="POST">
-  <input type = "submit" value = "⏮" name = "submit" class="prev">
-  <input type = "submit" value = "⏯" name = "submit" class="pp">
-  <input type = "submit" value = "⏭" name = "submit" class="next">
-</form>
-
-
 </body>
+
+<script>
+  (function() {
+    var mouseTimer = null, cursorVisible = true;
+
+    function disappearCursor() {
+        mouseTimer = null;
+        document.body.style.cursor = "none";
+        cursorVisible = false;
+    }
+
+    document.onmousemove = function() {
+        if (mouseTimer) {
+            window.clearTimeout(mouseTimer);
+        }
+        if (!cursorVisible) {
+            document.body.style.cursor = "default";
+            cursorVisible = true;
+        }
+        mouseTimer = window.setTimeout(disappearCursor, 1000);
+    };
+})();
+</script>
 
 </html>

@@ -1,8 +1,7 @@
 import os
-from flask import Flask, session, request, redirect, render_template, url_for, copy_current_request_context
+from flask import Flask, session, request, redirect, render_template, url_for
 from flask_session import Session
 import spotipy
-import threading
 import ssl
 import io
 from colorthief import ColorThief
@@ -11,8 +10,8 @@ import numpy
 
 
 ssl._create_default_https_context = ssl._create_unverified_context
-os.environ['SPOTIPY_CLIENT_ID'] = 'CLIENT ID HERE'
-os.environ['SPOTIPY_CLIENT_SECRET'] = 'CLIENT SECRET HERE'
+os.environ['SPOTIPY_CLIENT_ID'] = 'ddf6900b2e464e84b0a248f05f623371'
+os.environ['SPOTIPY_CLIENT_SECRET'] = '144440d0062e42f0b48a3145cef0d4ee'
 os.environ['SPOTIPY_REDIRECT_URI'] = 'http://127.0.0.1:5000'
 
 
@@ -164,8 +163,8 @@ def turntable():
                 os.remove(file)
 
         t = spotify.current_user_playing_track()["item"]["name"]
-        if (len(t) > 20):
-            track =(t[0:17]+'...')
+        if (len(t) > 12):
+            track =(t[0:12]+'...')
         else:
             track = spotify.current_user_playing_track()["item"]["name"]
 
@@ -175,20 +174,23 @@ def turntable():
         dr = int(spotify.current_user_playing_track()["item"]["duration_ms"])
         pg = int(spotify.current_user_playing_track()["progress_ms"])
         time = (dr-pg)/1000
+        animation = '2s'
 
         if (spotify.current_playback()["actions"]["disallows"] == {'pausing': True}):
             time = 'none'
+            animation = 'none'
 
     except TypeError or UnboundLocalError:
         track = "Your Player Is Idle"
         artist = "Please Refresh After Playing"
         image = 'https://upload.wikimedia.org/wikipedia/commons/a/a8/Ski_trail_rating_symbol_black_circle.png'
         time = 'none'
+        animation = 'none'
     
     except spotipy.exceptions.SpotifyException:
         return render_template('prem.html')
 
-    return render_template('turntable.html', image=image, time=time, record = url_for('static', filename='record.png'), track=track, logo=url_for('static', filename='logo.png'), needle = url_for('static', filename='needle.png'), rod = url_for('static', filename='rod.png'))
+    return render_template('turntable.html', image=image, time=time, record = url_for('static', filename='record.png'), track=track, logo=url_for('static', filename='logo.png'), needle = url_for('static', filename='needle.png'), rod = url_for('static', filename='rod.png'), animation=animation)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
+    app.run(debug=True, host='0.0.0.0', port=5000)
