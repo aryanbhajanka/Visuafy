@@ -1,4 +1,7 @@
 # Visuafy
+
+![alt text](https://github.com/aryanbhajanka/Visuafy/tree/main/Screenshots/Gradient.png?raw=true)
+
 Visuafy is a flask based visualiser and remote for Spotify.  
 Please note that for the program to work, you would require your own Spotify client ID and secret.  
 To do so,  
