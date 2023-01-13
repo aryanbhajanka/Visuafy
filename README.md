@@ -7,7 +7,7 @@ Gradient Theme:
 ![alt text](https://i.ibb.co/0FSbn1G/Gradient.png)  
   
 Turntable Theme:  
-![alt text](https://i.postimg.cc/Kv1WyC5V/Screenshot-2023-01-13-at-2-47-32-PM-2.png)  
+![alt text](https://i.ibb.co/VJMPs9K/Screenshot-2023-01-13-at-6-50-06-PM.png)  
   
 Please note that for the program to work, you would require your own Spotify client ID and secret.  
 To do so,  
