@@ -1,0 +1,342 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{favicon}}" sizes="any" type="image/x-icon" data-preload="true">
+    <title>Visuafy - Upload Image</title>
+    <style>
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+    font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: larger;
+    color: whitesmoke;
+    
+}
+
+label{
+  font-size: large;
+}
+
+label:hover{
+  cursor: pointer;
+}
+
+.loader { 
+  width:99%; 
+  margin:0 auto;
+  border-radius:10px;
+  position:absolute;
+  padding:1.2px;
+  display: none;
+}
+
+.loader .loaderBar { 
+  position:absolute;
+  border-radius:10px;
+  top: 0;
+  right:100%;
+  bottom:0;
+  left:0;
+  background:#000000; 
+  width:0;
+  animation:borealisBar 2s linear infinite;
+}
+
+@keyframes borealisBar {
+  0% {
+    left:0%;
+    right:100%;
+    width:0%;
+  }
+  10% {
+    left:0%;
+    right:75%;
+    width:25%;
+  }
+  90% {
+    right:0%;
+    left:75%;
+    width:25%;
+  }
+  100% {
+    left:100%;
+    right:0%;
+    width:0%;
+  }
+}
+
+img{
+  border-radius: 5px;
+  transition: transform .2s;
+}
+
+img:hover{
+    transform: scale(1.08);
+    cursor: pointer;
+}
+
+.input{
+    width: 75%;
+    height: 45px;  
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #cccccc00;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: rgba(0, 0, 0, 0.162);
+    color: white;
+}
+
+.input::placeholder{
+  color: rgb(199, 199, 199);
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.submit {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 20px;
+  outline: none;
+  padding: 16px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 32%;
+  will-change: transform;
+  font-size: 1.5vw;
+}
+
+.submit:disabled {
+  pointer-events: none;
+}
+
+.submit:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.left{
+float: left;
+position: relative;
+height: 100%;
+width: 40%;
+animation: fadeIn ease 0.5s;
+  -webkit-animation: fadeIn ease 0.5s;
+  -moz-animation: fadeIn ease 0.5s;
+  -o-animation: fadeIn ease 0.5s;
+  -ms-animation: fadeIn ease 0.5s;
+}
+
+.left_content{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  padding-left: 20%;
+}
+
+.right{
+float: right;
+position: relative;
+height: 100%;
+width: 50%;
+padding-right: 10%;
+line-height: 20px;
+animation: fadeIn ease 0.5s;
+  -webkit-animation: fadeIn ease 0.5s;
+  -moz-animation: fadeIn ease 0.5s;
+  -o-animation: fadeIn ease 0.5s;
+  -ms-animation: fadeIn ease 0.5s;
+}
+
+.right_content{
+  margin: 0;
+  position: absolute;
+  top: 40%;
+  -ms-transform: translateY(-40%);
+  transform: translateY(-40%);
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 100%;
+}
+
+.back{
+position: relative;
+top: 2%;
+left: 2%;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}
+}
+
+    </style>
+</head>
+
+<body>
+  <div class="loader" id="loader">
+    <div class="loaderBar"></div>
+  </div>
+            <div class="left">
+              <a href="/" class="back"><img src="https://cdn.iconscout.com/icon/free/png-256/free-back-arrow-1767515-1502579.png" height="50px" width="50px"></a>
+
+              <div class="left_content">
+            <center>
+               <h1>Enter Image Address</h1>
+               
+                <form action="{{ url_for('upload')}}" method="POST" id="form">
+                    <input type="text" id="url" name="url" placeholder="Paste the image address here" class="input">
+                    <p style="color: rgb(169, 2, 2);">{{error}}</p>
+
+
+                    <fieldset style="width: 30%; border-color: rgba(0, 0, 0, 0.162); border-width: 5px; border-radius: 15px;">
+                      <legend style="text-align: center; font-size: large;">Player Size:</legend>
+
+ 
+                          <label>
+                            <input type="radio" name="radio" checked id="large" value="large"/>
+                            <span>Large</span>
+                          </label>
+                          <br>
+                          <label>
+                            <input type="radio" name="radio" id="small" value="small"/>
+                            <span>Small</span>
+                          </label>
+                    </fieldset>
+
+
+                   <br><br> <input type="submit" value="submit" class="submit" onclick="ShowDiv()">
+                </form>
+            </center>
+          </div>
+        </div>
+
+<div class="right">
+  <div class="right_content">
+<center>
+
+<h3>Mesmerizing:</h3>
+<img src="https://media.giphy.com/media/jcckJbNsK0nLy/giphy.gif" height="115.2" width="213.12" onclick="load('img1');" id="img1">
+<img src="https://i.pinimg.com/originals/f5/65/6d/f5656d16d5177f75df410f1c66070ad3.gif" height="115.2" width="213.12" onclick="load('img2');" id="img2">
+<img src="http://www.veej.co.uk/images/home/gravity-hero.gif" height="115.2" width="213.12" onclick="load('img3');" id="img3">
+<img src="https://66.media.tumblr.com/576d1a07a5a1f411eeb6b4d57e04e592/tumblr_oavrfyFXSf1twd8ddo1_500.gif" height="115.2" width="213.12" onclick="load('img4');" id="img4">
+<img src="https://media.wired.com/photos/59326c29edfced5820d10419/master/w_1600%2Cc_limit/Tanah_Lot_Sunset_Fast_1k1.gif" height="115.2" width="213.12" onclick="load('img5');" id="img5">
+<img src="https://static.tumblr.com/f52620546e6d573d83c937cc0e78305e/3zjdncp/Pb6olpwdg/tumblr_static_tumblr_static_18bx50dyicm8c80scw8k0k08s_640.gif" height="115.2" width="213.12" onclick="load('img6');" id="img6">
+
+
+<h3>LoFi:</h3>
+
+<img src="https://steamuserimages-a.akamaihd.net/ugc/930428699254558429/F2D4AB337B68015813EF032DD188C985CAB50A72/?imw=512&imh=288&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=true" height="115.2" width="213.12" onclick="load('img7');" id="img7">
+<img src="https://art.ngfiles.com/images/2938000/2938470_kldpxl_orion.gif?f1671718033" height="115.2" width="213.12" onclick="load('img8');" id="img8">
+<img src="https://steamuserimages-a.akamaihd.net/ugc/945094571616867748/680E4979CC75A2310664E0883F3F3FC6CBECA3BE/?imw=5000&imh=5000&ima=fit&impolicy=Letterbox&imcolor=%23000000&letterbox=false" height="115.2" width="213.12" onclick="load('img9');" id="img9">
+<img src="https://64.media.tumblr.com/54288548a71e4de403f888be20d7bea3/8f35baba24c674ad-86/s540x810/61054a8321ce849d0c374045e17abf448a5e1e10.gifv" height="115.2" width="213.12" onclick="load('img10');" id="img10">
+<img src="https://images.squarespace-cdn.com/content/v1/5fa829bf67dd1d6363c491cb/1609870144932-7TY6DIW7GOZIOEPPFH3M/ezgif.com-video-to-gif-8.gif" height="115.2" width="213.12" onclick="load('img11');" id="img11">
+<img src="https://d37b3blifa5mva.cloudfront.net/000_clients/559400/page/559400SqKkP0Ey.gif" height="115.2" width="213.12" onclick="load('img12');" id="img12">
+
+</center>
+</div>
+</div>
+
+</body>
+<script>
+
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    window.location.reload();
+  }
+});
+
+  function ShowDiv() {
+      document.getElementById("loader").style.display = "block";
+      return true;
+  }
+
+function load(id){
+  var img = document.getElementById(id).src;
+  document.getElementById("url").value = img;
+  ShowDiv()
+  document.getElementById("form").submit();
+}
+
+  </script>
+
+</html>

@@ -1,0 +1,388 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="{{time}}">
+    <link rel="icon" href="{{favicon}}" sizes="any" type="image/x-icon" data-preload="true">
+    <title>Visuafy - Custom Image</title>
+    <style>
+
+html, body{
+  margin: 0;
+        font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+        user-select: none;
+        background-image: url('{{ url }}');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-color: black;
+        line-height: 1;
+        font-size: large;
+        backdrop-filter: blur(100%);
+        user-select: none;
+        height: 100%;
+        color: {{txt}};
+        text-shadow: 1px 1px 5px {{txt_shadow}}, 1px 1px 5px {{txt_shadow}};
+}
+
+.prev{
+  background:url("{{prev}}");
+  background-size: cover;
+  border: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  color: transparent;
+  -webkit-filter: drop-shadow(3px 3px 3px {{txt_shadow}});
+  filter: drop-shadow(3px 3px 3px {{txt_shadow}});
+  transition: transform .1s;
+}
+
+.prev:hover{
+  transform: scale(1.05);
+}
+
+.pp{
+  background:url("{{pp}}");
+  background-size: cover;
+  border: none;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  color: transparent;
+  -webkit-filter: drop-shadow(3px 3px 3px {{txt_shadow}});
+  filter: drop-shadow(3px 3px 3px {{txt_shadow}});
+  transition: transform .1s;
+}
+
+.pp:hover{
+  transform: scale(1.05);
+}
+
+.next{
+  background:url("{{next}}");
+  background-size: cover;
+  border: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  color: transparent;
+  -webkit-filter: drop-shadow(3px 3px 3px {{txt_shadow}});
+  filter: drop-shadow(3px 3px 3px {{txt_shadow}});
+  transition: transform .1s;
+}
+
+.next:hover{
+  transform: scale(1.05);
+}
+
+img {
+        -webkit-filter: drop-shadow(5px 5px 5px #000000);
+        filter: drop-shadow(5px 5px 5px #000000);
+        margin-bottom: 13px;
+        border-radius: 5%;
+      }
+
+p{
+  font-size: xx-large;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@media screen and (max-height: 50px) {
+  .column {
+    height: 100%;
+  }
+}
+
+button {
+    transition: all .2s ease;
+    font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 40px;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
+    border: 0;
+    color: {{txt}};
+}
+button:hover {
+  cursor: pointer;
+  border-radius: 10px;
+    background-color: #00000030;
+    color: {{txt}};
+}
+
+.menu{
+  float: right;
+  line-height: 0;
+  transition: all .2s ease;
+    text-transform: none;
+    text-align: none;
+    line-height: none;
+    font-size: large;
+    background-color : transparent;
+    padding-right: 1.5%;
+    outline: none;
+    border: 0;
+    text-shadow: 1px 1px 5px {{txt_shadow}}, 1px 1px 5px {{txt_shadow}};
+}
+
+.menu:hover{
+  cursor: pointer;
+  background-color: #00000000;
+  transform: scale(1.1);
+}
+
+#vertical-menu {
+  width: 85px;
+  float: right;
+  z-index: 1;
+  padding: 10px;
+  padding-top: 20px;
+  display: none;
+  animation: zoom-in-zoom-out 0.1s ease;
+  
+}
+
+#vertical-menu a {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: medium;
+  transition: all .2s ease;
+  text-transform: none;
+  color: {{txt}};
+}
+
+#vertical-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#fs{
+  font-size: medium;
+  text-transform: none;
+  padding: 0;
+  width: 85px;
+  line-height: 0;
+  height: 35px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 8px {{txt_shadow}}, 1px 1px 8px {{txt_shadow}};
+}
+
+#fs a{
+  background-color: transparent;
+  padding: 10px;
+}
+
+#fs:hover{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#fs a:hover{
+  background-color: transparent;
+}
+
+.fs:hover {
+  cursor: pointer;
+  background-color: #00000010;
+  color: white;
+}
+
+:fullscreen {
+  border: 0;
+}
+
+:-webkit-full-screen {
+  border: 0;
+}
+
+
+.media:hover{
+  cursor: pointer;
+}
+
+.content{
+  position: relative;
+  top:  94%;
+  left: 2.2%;
+  width: 40%;
+  transform: translate(2.2%, -94%);
+  text-align: left;
+  animation: fadeIn ease 1.2s;
+  -webkit-animation: fadeIn ease 1.2s;
+  -moz-animation: fadeIn ease 1.2s;
+  -o-animation: fadeIn ease 1.2s;
+  -ms-animation: fadeIn ease 1.2s;
+  text-shadow: 1px 1px 5px {{txt_shadow}}, 1px 1px 5px {{txt_shadow}};
+  
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(0, 0);
+  }
+  25% {
+    transform: scale(0.25, 0.25);
+  }
+  50% {
+    transform: scale(0.5, 0.5);
+  }
+  75% {
+    transform: scale(0.75, 0.75);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}
+}
+
+    </style>
+</head>
+
+<body onload="toggle()">
+
+  <button class="menu" onclick="toggle()"><h1 style="float: right;">⋮</h1></button>
+
+  <div id="vertical-menu">
+    <a href="/upload_image">Back</a><br>
+    <button id="fs" onclick="fs()"><a>Expand</a></button><br><br>
+    <a href="/gradient">Refresh</a><br>
+    <a href="mailto: aryanbhajanka204@gmail.com" target="_blank">Report</a><br>
+  </div>
+
+            <div class="content">
+                        <img src="{{image}}" height="200" width="200"><br>
+                    
+                  <h1 style="margin: 0; padding: 0; font-size: 40px; padding-bottom: 5px;">{{track}}</h1>
+                    <p style="margin: 0; padding: 0; font-size: 30px;">{{artist}}</p>
+  
+                    <h1 style="letter-spacing: 5px; margin: 0; padding: 0;">
+                      <form action="{{ url_for('custom')}}" method="POST">
+                      <input type = "submit" name = "submit" class="prev" value = "prev" onclick="ShowDiv()">
+                      <input type = "submit" name = "submit" class="pp" value = "pp">
+                      <input type = "submit" name = "submit" class="next" value = "next" onclick="ShowDiv()">
+                    </form>
+                    </h1>
+                  </div>
+</body>
+
+<script>
+
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    window.location.href = "/upload_image";
+  }
+});
+
+  (function() {
+    var mouseTimer = null, cursorVisible = true;
+
+    function disappearCursor() {
+        mouseTimer = null;
+        document.body.style.cursor = "none";
+        cursorVisible = false;
+    }
+
+    document.onmousemove = function() {
+        if (mouseTimer) {
+            window.clearTimeout(mouseTimer);
+        }
+        if (!cursorVisible) {
+            document.body.style.cursor = "default";
+            cursorVisible = true;
+        }
+        mouseTimer = window.setTimeout(disappearCursor, 1000);
+    };
+})();
+
+function toggle() {
+  var x = document.getElementById("vertical-menu");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+  function fs() {
+    var elem = document.documentElement;
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    toggle();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen();
+    toggle();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
+    toggle();
+  }
+}
+
+function ShowDiv() {
+    document.getElementById("loader").style.display = "block";
+    return true;
+}
+</script>
+</html>

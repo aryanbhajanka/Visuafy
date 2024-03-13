@@ -3,16 +3,173 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="{{time}}">
     <link href='https://fonts.googleapis.com/css?family=Silkscreen' rel='stylesheet'>
+    <link rel="icon" href="{{favicon}}" sizes="any" type="image/x-icon" data-preload="true">
+    <title>Visuafy - Turntable</title>
 
 <style>
 
 body{
   margin: 0;
-  padding-right: 5%;
-  background-image: url('https://img.freepik.com/free-photo/texture-background_1404-99.jpg?w=2000');
+  background-image: url('https://img.freepik.com/premium-photo/4k-high-resolution-fabric-velvet-texture-wallpaper-background-realistic-3d-rendering-069_547280-105.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+  user-select: none;
+}
+
+.menu{
+  float: right;
+  line-height: 0;
+  transition: all .2s ease;
+    text-transform: none;
+    text-align: none;
+    line-height: none;
+    font-size: large;
+    background-color : transparent;
+    padding-right: 1.5%;
+    outline: none;
+    border: 0;
+}
+
+.menu:hover{
+  cursor: pointer;
+  background-color: #00000000;
+  transform: scale(1.15);
+}
+
+#vertical-menu {
+  width: 85px;
+  float: right;
+  z-index: 1;
+  padding-top: 20px;
+  display: none;
+  animation: zoom-in-zoom-out 0.1s ease;
+  line-height: 15px;
+}
+
+#vertical-menu a {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: medium;
+  transition: all .2s ease;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+#vertical-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#fs{
+  font-size: medium;
+  text-transform: none;
+  padding: 0;
+  width: 85px;
+  line-height: 0;
+  height: 35px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#fs a{
+  background-color: transparent;
+}
+
+#fs:hover{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#fs a:hover{
+  background-color: transparent;
+}
+
+.fs:hover {
+  cursor: pointer;
+  background-color: #00000010;
+  color: white;
+}
+
+:fullscreen {
+  border: 0;
+}
+
+:-webkit-full-screen {
+  border: 0;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(0, 0);
+  }
+  25% {
+    transform: scale(0.25, 0.25);
+  }
+  50% {
+    transform: scale(0.5, 0.5);
+  }
+  75% {
+    transform: scale(0.75, 0.75);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.prev{
+  background:url("https://i.ibb.co/RgfLRXZ/rewind-button.png");
+  background-size: cover;
+  border: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: transparent;
+  transition: transform .1s;
+}
+
+.pp{
+  background:url("https://i.ibb.co/ZVsQDZN/pause-play.png");
+  background-size: cover;
+  border: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: transparent;
+  transition: transform .1s;
+}
+
+.next{
+  background:url("https://i.ibb.co/grngnhm/forward-button.png");
+  background-size: cover;
+  border: none;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  color: transparent;
+  transition: transform .1s;
+}
+
+button {
+    transition: all .2s ease;
+    font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 40px;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
+    border: 0;
+    color: black;
+}
+
+button:hover {
+  cursor: pointer;
+  border-radius: 10px;
+    background-color: #00000030;
+    color: black;
 }
 
 a{
@@ -28,8 +185,8 @@ a{
 }
 
 .art_image{
-  width: 180px;
-  height: 180px;
+  width: 210px;
+  height: 210px;
   animation: rotation infinite linear;
   animation-duration: {{animation}};
   border-radius: 50%;
@@ -43,19 +200,21 @@ a{
   border-radius: 50%;
   -webkit-filter: drop-shadow(5px 5px 5px #000000);
   filter: drop-shadow(5px 5px 5px #000000);
-  animation: fadeIn ease 5s;
-  -webkit-animation: fadeIn ease 5s;
-  -moz-animation: fadeIn ease 5s;
-  -o-animation: fadeIn ease 5s;
-  -ms-animation: fadeIn ease 5s;
+  animation: fadeIn ease 1.2s;
+  -webkit-animation: fadeIn ease 1.2s;
+  -moz-animation: fadeIn ease 1.2s;
+  -o-animation: fadeIn ease 1.2s;
+  -ms-animation: fadeIn ease 1.2s;
+  pointer-events: none;
 }
 
 .record_image{
-    height: 520px;
-    width: 520px;
+    height: 550px;
+    width: 550px;
     border-radius: 50%;
     animation: rotation infinite linear; 
     animation-duration: {{animation}};
+    pointer-events: none;
 }
 
 .needle{
@@ -64,6 +223,7 @@ a{
   left: 70%;
   transform: translate(-73%, -38%);
   z-index: 2;
+  pointer-events: none;
 }
 
 .rod{
@@ -72,88 +232,130 @@ a{
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 3;
+  pointer-events: none;
 }
 
 .rod_image{
-  height: 18px;
-  width: 18px;
+  height: 22px;
+  width: 22px;
   animation: rotation infinite linear;
+  pointer-events: none;
   animation-duration: {{animation}};
 }
 
 .table{
   height: 700px;
-  width: 900px;
+  width: 1000px;
   border-radius: 3%;
   -webkit-filter: drop-shadow(5px 5px 5px #000000);
   filter: drop-shadow(5px 5px 5px #000000);
+  pointer-events: none;
+  animation: fadeIn ease 1.2s;
+  -webkit-animation: fadeIn ease 1.2s;
+  -moz-animation: fadeIn ease 1.2s;
+  -o-animation: fadeIn ease 1.2s;
+  -ms-animation: fadeIn ease 1.2s;
 }
 
 .tablel{
   position: absolute;
   top:  50%;
-  left: 53%;
-  transform: translate(-53%, -50%);
-}
-
-.logo{
-  color: white;
-  font-size: medium;
-  position: absolute;
-  top:  2%;
-  left: 49%;
-  transform: translate(-49%, -2%);
-}
-
-.pp{
-  position: absolute;
-  top:  80%;
-  left: 87.5%;
-  transform: translate(-87.5%, -80%);
-  font-size: large;
-  height: 55px;
-  width: 55px;
-  border-radius: 50%;
-}
-
-.next{
-  position: absolute;
-  top:  88%;
-  left: 92%;
-  transform: translate(-92%, -88%);
-  font-size: large;
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
-}
-
-.prev{
-  position: absolute;
-  top:  88%;
-  left: 82%;
-  transform: translate(-82%, -88%);
-  font-size: large;
-  height: 45px;
-  width: 45px;
-  border-radius: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .screen{
   position: absolute;
-  top:  92%;
-  left: 6.5%;
+  top:  89.5%;
+  left: 7%;
   transform: translate(-10%, -80%);
-  width: 200px;
+  width: 300px;
   height: 40px;
   text-align: center;
-  font-family: 'Silkscreen';
-  font-size: small;
-  color: white;
-  background-color: black;
-  border-radius: 5px;
+  font-size: medium;
+  color: rgba(255, 255, 255, 0.8);
+  text-shadow: 4px 4px 6px #000000;
   z-index: 3;
   line-height: 10px;
-  border: rgb(100, 100, 100) solid 4px;
+  text-align: left;
+}
+
+.logo{
+  color: rgba(255, 255, 255, 0.8);
+  font-size: medium;
+  position: absolute;
+  top:  2%;
+  left: 50%;
+  transform: translate(-50%, -2%);
+}
+
+.pp{
+  position: absolute;
+  top:  93.5%;
+  left: 89.2%;
+  transform: translate(-89.2%, -93.5%);
+  font-size: large;
+  height: 60px;
+  width: 60px;
+  border:none;
+  opacity: 0.8;
+  -webkit-transition: transform 0.05s ease-in-out;
+    -moz-transition:transform 0.05s ease-in-out;
+    -ms-transition:transform 0.05s ease-in-out;
+}
+
+.pp:hover{
+  -webkit-transition: transform 0.05s ease-in-out;
+    -moz-transition:transform 0.05s ease-in-out;
+    -ms-transition:transform 0.05s ease-in-out;
+  cursor: pointer;
+  transform: translate(-89.2%, -93.5%) scale(1.05);
+}
+
+.next{
+  position: absolute;
+  top:  92%;
+  left: 95%;
+  transform: translate(-95%, -92%);
+  font-size: large;
+  height: 35px;
+  width: 35px;
+  border:none;
+  opacity: 0.8;
+  -webkit-transition: transform 0.05s ease-in-out;
+    -moz-transition:transform 0.05s ease-in-out;
+    -ms-transition:transform 0.05s ease-in-out;
+}
+
+.next:hover{
+  -webkit-transition: transform 0.05s ease-in-out;
+    -moz-transition:transform 0.05s ease-in-out;
+    -ms-transition:transform 0.05s ease-in-out;
+  cursor: pointer;
+  transform: translate(-95%, -92%) scale(1.05);
+}
+
+.prev{
+  position: absolute;
+  top:  92%;
+  left: 81%;
+  transform: translate(-81%, -92%);
+  font-size: large;
+  height: 35px;
+  width: 35px;
+  border:none;
+  opacity: 0.8;
+  -webkit-transition: transform 0.05s ease-in-out;
+    -moz-transition:transform 0.05s ease-in-out;
+    -ms-transition:transform 0.05s ease-in-out;
+}
+
+.prev:hover{
+  cursor: pointer;
+  transform: translate(-81%, -92%) scale(1.05);
+  -webkit-transition: transform 0.05s ease-in-out;
+    -moz-transition:transform 0.05s ease-in-out;
+    -ms-transition:transform 0.05s ease-in-out;
 }
 
 @keyframes rotation {
@@ -209,26 +411,38 @@ a{
     opacity:1;
 }
 }
+
   </style>
 </head>
 
-<body>
+<body onload="toggle()">
+
+  <button class="menu" onclick="toggle()"><h1 style="float: right; color: rgba(255, 255, 255, 0.8);">⋮</h1></button>
+
+  <div id="vertical-menu">
+    <a href="/">Home</a><br>
+    <button id="fs" onclick="fs()"><a>Expand</a></button><br><br>
+    <a href="/turntable">Refresh</a><br>
+    <a href="mailto: aryanbhajanka204@gmail.com" target="_blank">Report</a><br>
+  </div>
+
   <div class="tablel">
     <div class="screen">
       <h3>{{track}}</h3>
+      <h4 style="font-size: small;">{{artist}}</h4>
     </div>
-  <img src="https://img.freepik.com/premium-photo/black-metal-texture_46370-2902.jpg?w=360" class="table">
+  <img src="https://wallpapers.com/images/hd/gray-gradient-background-jsjkfefdrqvhj8pt.jpg" class="table">
   <a href="/"><h3 class="logo">ＶＩＳＵＡＦＹ</h3></a>
 
   <form action="{{ url_for('turntable')}}" method="POST">
-    <input type = "submit" value = "⏮" name = "submit" class="prev">
-    <input type = "submit" value = "⏯" name = "submit" class="pp">
-    <input type = "submit" value = "⏭" name = "submit" class="next">
+    <input type = "submit" value = "prev" name = "submit" class="prev">
+    <input type = "submit" value = "pp" name = "submit" class="pp">
+    <input type = "submit" value = "next" name = "submit" class="next">
   </form>
-
+  
   </div>
   <div class="record">
-    <img src="{{record}}" class="record_image">
+    <img src="{{record}}" class="record_image"> 
 
     <div class="art">
     <img src="{{image}}" class="art_image">
@@ -242,6 +456,16 @@ a{
 </body>
 
 <script>
+
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    window.location.reload();
+  }
+});
+
   (function() {
     var mouseTimer = null, cursorVisible = true;
 
@@ -262,6 +486,30 @@ a{
         mouseTimer = window.setTimeout(disappearCursor, 1000);
     };
 })();
+
+function toggle() {
+  var x = document.getElementById("vertical-menu");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+  function fs() {
+    var elem = document.documentElement;
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    toggle();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen();
+    toggle();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
+    toggle();
+  }
+}
+
 </script>
 
 </html>

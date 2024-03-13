@@ -2,6 +2,8 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="refresh" content="{{time}}">
+    <link rel="icon" href="{{favicon}}" sizes="any" type="image/x-icon" data-preload="true">
+    <title>Visuafy - Gradient</title>
     <style>
 
 body {
@@ -9,11 +11,71 @@ body {
   margin: 0;
 	background: linear-gradient(-45deg, rgb{{a}}, rgb{{b}}, rgb{{c}}, rgb{{d}});
 	background-size: 400% 400%;
-	animation: gradient 10s ease infinite;
+	animation: gradient 15s ease infinite;
   font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: x-large;
   color: {{txt}};
   backdrop-filter: blur(100%);
+  user-select: none;
+}
+
+.loader {
+  display: none;
+  width: 20px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  box-shadow: 0 0 0 0 {{shadow}};
+  animation: l1 1s infinite;
+  background: {{txt}};
+}
+
+@keyframes l1 {
+    100% {box-shadow: 0 0 0 30px #0000}
+}
+
+.prev{
+  background:url("{{prev}}");
+  background-size: cover;
+  border: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  color: transparent;
+  transition: transform .1s;
+}
+
+.prev:hover{
+  transform: scale(1.05);
+}
+
+.pp{
+  background:url("{{pp}}");
+  background-size: cover;
+  border: none;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  color: transparent;
+  transition: transform .1s;
+}
+
+.pp:hover{
+  transform: scale(1.05);
+}
+
+.next{
+  background:url("{{next}}");
+  background-size: cover;
+  border: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  color: transparent;
+  transition: transform .1s;
+}
+
+.next:hover{
+  transform: scale(1.05);
 }
 
 img {
@@ -26,6 +88,11 @@ img {
   top:  50%;
   left: 27%;
   transform: translate(-27%, -50%);
+  animation: fadeIn ease 1.2s;
+  -webkit-animation: fadeIn ease 1.2s;
+  -moz-animation: fadeIn ease 1.2s;
+  -o-animation: fadeIn ease 1.2s;
+  -ms-animation: fadeIn ease 1.2s;
 }
 p{
   font-size: xx-large;
@@ -40,19 +107,6 @@ p{
 	100% {
 		background-position: 0% 50%;
 	}
-}
-
-.row {
-  display: flex;
-  position:absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  top: 62%;
-}
-
-.column {
-  flex: 33.33%;
-  padding: 15px;
 }
 
 @media screen and (max-height: 50px) {
@@ -86,6 +140,11 @@ button:hover {
   top:  52%;
   left: 68%;
   transform: translate(-68%, -52%);
+  animation: fadeIn ease 1.2s;
+  -webkit-animation: fadeIn ease 1.2s;
+  -moz-animation: fadeIn ease 1.2s;
+  -o-animation: fadeIn ease 1.2s;
+  -ms-animation: fadeIn ease 1.2s;
   
 }
 
@@ -106,6 +165,7 @@ button:hover {
 .menu:hover{
   cursor: pointer;
   background-color: #00000000;
+  transform: scale(1.1);
 }
 
 #vertical-menu {
@@ -114,7 +174,8 @@ button:hover {
   z-index: 1;
   padding: 10px;
   padding-top: 20px;
-  display: hidden;
+  display: none;
+  animation: zoom-in-zoom-out 0.1s ease
 }
 
 #vertical-menu a {
@@ -125,6 +186,7 @@ button:hover {
   text-decoration: none;
   border-radius: 8px;
   font-size: medium;
+  transition: all .2s ease;
   color: {{txt}};
 }
 
@@ -132,12 +194,27 @@ button:hover {
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.fs{
+#fs{
   font-size: medium;
   text-transform: none;
   padding: 0;
   width: 85px;
   line-height: 0;
+  height: 35px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+#fs a{
+  background-color: transparent;
+}
+
+#fs:hover{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#fs a:hover{
+  background-color: transparent;
 }
 
 .fs:hover {
@@ -154,27 +231,84 @@ button:hover {
   border: 0;
 }
 
-.media{
-  background-color: transparent; 
-  border: 0; 
-  font-size: 30px;
-  color: {{txt}};
-}
 
 .media:hover{
   cursor: pointer;
 }
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(0, 0);
+  }
+  25% {
+    transform: scale(0.25, 0.25);
+  }
+  50% {
+    transform: scale(0.5, 0.5);
+  }
+  75% {
+    transform: scale(0.75, 0.75);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}
+}
+
     </style>
 </head>
 
-<body onload="set()">
+<body onload="toggle()">
 
   <button class="menu" onclick="toggle()"><h1 style="float: right;">⋮</h1></button>
 
-
   <div id="vertical-menu">
     <a href="/">Home</a><br>
-    <button class="fs" onclick="fs()"><a>Full Sc</a></button><br><br>
+    <button id="fs" onclick="fs()"><a>Expand</a></button><br><br>
     <a href="/gradient">Refresh</a><br>
     <a href="mailto: aryanbhajanka204@gmail.com" target="_blank">Report</a><br>
   </div>
@@ -193,16 +327,27 @@ button:hover {
                     
                     <h1 style="letter-spacing: 5px; line-height: 10px;">
                       <form action="{{ url_for('gradient')}}" method="POST">
-                      <input type = "submit" value = "⏮" name = "submit" class="media">
-                      <input type = "submit" value = "⏯" name = "submit" class="media">
-                      <input type = "submit" value = "⏭" name = "submit" class="media">
+                      <input type = "submit" name = "submit" class="prev" value = "prev" onclick="ShowDiv()">
+                      <input type = "submit" name = "submit" class="pp" value = "pp" onclick="ShowDiv()">
+                      <input type = "submit" name = "submit" class="next" value = "next" onclick="ShowDiv()">
                     </form>
                     </h1>
+                    <div class="loader" id="loader"></div>
                   </center>
                   </div>
 </body>
 
 <script>
+
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    window.location.reload();
+  }
+});
+
   (function() {
     var mouseTimer = null, cursorVisible = true;
 
@@ -233,27 +378,23 @@ function toggle() {
   }
 }
 
-function set(){
-  var x = document.getElementById("vertical-menu");
-  x.style.display = "none";
-}
-
   function fs() {
     var elem = document.documentElement;
     if (elem.requestFullscreen) {
     elem.requestFullscreen();
     toggle();
-  } else if (elem.webkitRequestFullscreen) { /* Safari */
+  } else if (elem.webkitRequestFullscreen) { 
     elem.webkitRequestFullscreen();
     toggle();
-  } else if (elem.msRequestFullscreen) { /* IE11 */
+  } else if (elem.msRequestFullscreen) { 
     elem.msRequestFullscreen();
     toggle();
   }
 }
 
-
+function ShowDiv() {
+    document.getElementById("loader").style.display = "block";
+    return true;
+}
 </script>
-
-
 </html>

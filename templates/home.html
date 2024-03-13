@@ -1,6 +1,9 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{favicon}}" sizes="any" type="image/x-icon" data-preload="true">
+    <title>Visuafy - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
 
 body {
@@ -10,6 +13,52 @@ body {
   font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
   margin: 0px;
 }
+
+
+@keyframes l3 {
+    20%{background-position:0%   0%, 50%  50%,100%  50%}
+    40%{background-position:0% 100%, 50%   0%,100%  50%}
+    60%{background-position:0%  50%, 50% 100%,100%   0%}
+    80%{background-position:0%  50%, 50%  50%,100% 100%}
+}
+
+.modal {
+            align-items: center;
+            display: flex;
+            justify-content: center; 
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: transparent;
+            transition: all 0.4s;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .content {
+            position: absolute;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            width: 630px;
+            height: 280px;
+            padding: 1em 2em;
+            border-radius: 10px;
+        } 
+        .modal:target {
+            visibility: visible;
+            opacity: 1;
+        }
+        .box-close {
+            position: absolute;
+            top: 0;
+            right: 15px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 30px;
+        }
+
+
 
 @keyframes gradient {
 	0% {
@@ -22,6 +71,7 @@ body {
 		background-position: 0% 50%;
 	}
 }
+
 
 ul {
   list-style-type: none;
@@ -64,7 +114,8 @@ li a:hover{
   font-weight: 600;
   line-height: normal;
   margin: 0;
-  min-height: 60px;
+  min-height: 100px;
+  height: 400px;
   min-width: 0;
   outline: none;
   padding: 16px 24px;
@@ -83,11 +134,12 @@ li a:hover{
   pointer-events: none;
 }
 
-.button-28:hover {
+.button-28:hover{
   color: #fff;
   background-color: #1A1A1A;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
+  
 }
 
 .button-28:active {
@@ -105,6 +157,101 @@ li a:hover{
   left: 50%;
   transform: translate(-50%, -42%);
   width: 100%;
+  animation: fadeIn ease 0.5s;
+  -webkit-animation: fadeIn ease 0.5s;
+  -moz-animation: fadeIn ease 0.5s;
+  -o-animation: fadeIn ease 0.5s;
+  -ms-animation: fadeIn ease 0.5s;
+}
+
+.loader { 
+  width:99%; 
+  margin:0 auto;
+  border-radius:10px;
+  border:4px solid transparent;
+  position:relative;
+  padding:1.2px;
+  display: none;
+}
+
+.loader .loaderBar { 
+  position:absolute;
+  border-radius:10px;
+  top:0;
+  right:100%;
+  bottom:0;
+  left:0;
+  background:#000000; 
+  width:0;
+  animation:borealisBar 2s linear infinite;
+}
+
+@keyframes borealisBar {
+  0% {
+    left:0%;
+    right:100%;
+    width:0%;
+  }
+  10% {
+    left:0%;
+    right:75%;
+    width:25%;
+  }
+  90% {
+    right:0%;
+    left:75%;
+    width:25%;
+  }
+  100% {
+    left:100%;
+    right:0%;
+    width:0%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}
 }
 
     </style>
@@ -113,32 +260,87 @@ li a:hover{
 <body>
 
   <ul>
-    <li><p style="color: white; padding-left: 25px; padding-right: 20px;">ＶＩＳＵＡＦＹ</p></li>
-    <li><a href="https://open.spotify.com", target="_blank">Spotify</a></li>
-    <li><a href="/">About</a></li>
+    <li><p style="color: white; padding-left: 25px; padding-right: 20px; cursor: default; user-select: none;">ＶＩＳＵＡＦＹ</p></li>
+    <li><a href="spotify:app", target="_blank">Spotify</a></li>
+    <li><a href="#popup-box">About</a></li>
     <li><a href="https://github.com/aryanbhajanka/Visuafy" target="_blank">Source</a></li>
     <li><a href="mailto: aryanbhajanka204@gmail.com">Contact</a></li>
     <li style="float:right"><a class="active" href="/signout">Sign Out</a></li>
   </ul>  
 
+
+  <div class="loader" id="loader">
+    <div class="loaderBar"></div>
+  </div>
+
+
 <div class="center">
 <div style="padding-top: 15px;"><center>
   <h2>Hello, {{name}}</h2>
   <h3>Select A Theme:</h3></center></div>
-
-
+<br>
   <div class="main">
-         
-          <h2 style="padding-left: 15px;">Animated:</h2>
-				<a href="/gradient" style="padding: 15px;"><button class="button-28" role="button"><h3>Gradient:</h3><h5>Minimalistic artwork colours</h5></button></a>
-        <a href="/turntable" style="padding: 15px;"><button class="button-28" role="button"><h3>Turntable:</h3><h5>Your favorites played on a vinyl record</h5></button></a>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target = "_blank" style="padding: 15px;"><button class="button-28" role="button"><h3 style="color: red;">Theme 3:</h3><h5 style="color: red;">Coming Soon</h5></button></a>
-<br><br><h2 style="padding-left: 15px;">Image Based:</h2> 
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target = "_blank" style="padding: 15px;"><button class="button-28" role="button"><h3 style="color: red;">Theme 4:</h3><h5 style="color: red;">Coming Soon</h5></button></a>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target = "_blank" style="padding: 15px;"><button class="button-28" role="button"><h3 style="color: red;">Theme 5:</h3><h5 style="color: red;">Coming Soon</h5></button></a>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target = "_blank" style="padding: 15px;"><button class="button-28" role="button"><h3 style="color: red;">Custom Theme:</h3><h5 style="color: red;">Coming Soon</h5></button></a>
+
+
+
+				<a href="/gradient" style="padding: 15px;">
+          <button class="button-28" role="button" onclick="ShowDiv()" id="btn">
+            <h3>Gradient:</h3>
+            <h5>Minimalistic gradient of artwork colours</h5>
+          </button></a>
+
+
+        <a href="/turntable" style="padding: 15px;">
+          <button class="button-28" role="button" onclick="ShowDiv()" id="btn">
+            <h3>Turntable:</h3>
+            <h5>Your favorites played on a vinyl record</h5>
+          </button></a>
+
+
+        <a href="/upload_image" style="padding: 15px;">
+          <button class="button-28" role="button" onclick="ShowDiv()" id="btn">
+            <h3>Custom Image:</h3>
+            <h5>Use your own image as a background</h5>
+          </button></a>
+
       </div>
-</body>
+
+      <div id="popup-box" class="modal">
+        <div class="content">
+            <h1>
+                About Me
+            </h1>
+            <b>
+                <p>Hello there! I'm Aryan Bhajanka, a dedicated Python enthusiast open to learning new things with a knack for crafting sleek, efficient and elegant web solutions using Flask. As a hobbyist turning aspiring professional, I'm on a mission to channel my love for coding and designing into a rewarding career path.</p>
+                <a href="https://github.com/aryanbhajanka" style="text-decoration: none; color: white;" target="_blank"><p><i style="font-size:25px" class="fa">&#xf09b;</i><span style="padding-left: 10px;">GitHub</span></p></a>
+                <a href="https://www.linkedin.com/in/aryan-bhajanka-0202072b7/" style="text-decoration: none; color: white;" target="_blank"><p><i style="font-size:25px" class="fa">&#xf08c;</i><span style="padding-left: 10px;">LinkedIn</span></p></a>
+            </b>
+            <a href="#"
+               class="box-close">
+                ×
+            </a>
+        </div>
+    </div>
+
+<script>
+
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    document.getElementById("center").animationDuration = "0s";
+    window.location.reload();
+  }
+});
+
+  function ShowDiv() {
+    document.getElementById("loader").style.display = "block";
+    return true;
+}
+</script>
+
 
 
 </html>
+

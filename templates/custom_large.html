@@ -1,0 +1,414 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="{{time}}">
+    <link rel="icon" href="{{favicon}}" sizes="any" type="image/x-icon" data-preload="true">
+    <title>Visuafy - Custom Image</title>
+    <style>
+
+html, body{
+  margin: 0;
+        font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+        user-select: none;
+        background-image: url('{{ url }}');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-color: black;
+        line-height: 5px;
+        font-size: x-large;
+        backdrop-filter: blur(100%);
+        user-select: none;
+        color: {{txt}};
+        text-shadow: 1px 1px 5px {{txt_shadow}}, 1px 1px 5px {{txt_shadow}};
+}
+
+.loader {
+  display: none;
+  width: 20px;
+  aspect-ratio: 1;
+  border-radius: 100%;
+  box-shadow: 0 0 0 0 {{shadow}};
+  animation: l1 1s infinite;
+  background: {{txt}};
+}
+
+@keyframes l1 {
+    100% {box-shadow: 0 0 0 30px #0000}
+}
+
+.prev{
+  background:url("{{prev}}");
+  background-size: cover;
+  border: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  color: transparent;
+  -webkit-filter: drop-shadow(3px 3px 3px {{txt_shadow}});
+  filter: drop-shadow(3px 3px 3px {{txt_shadow}});
+  transition: transform .1s;
+}
+
+.prev:hover{
+  transform: scale(1.05);
+}
+
+.pp{
+  background:url("{{pp}}");
+  background-size: cover;
+  border: none;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  color: transparent;
+  -webkit-filter: drop-shadow(3px 3px 3px {{txt_shadow}});
+  filter: drop-shadow(3px 3px 3px {{txt_shadow}});
+  transition: transform .1s;
+}
+
+.pp:hover{
+  transform: scale(1.05);
+}
+
+.next{
+  background:url("{{next}}");
+  background-size: cover;
+  border: none;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
+  color: transparent;
+  -webkit-filter: drop-shadow(3px 3px 3px {{txt_shadow}});
+  filter: drop-shadow(3px 3px 3px {{txt_shadow}});
+  transition: transform .1s;
+}
+
+.next:hover{
+  transform: scale(1.05);
+}
+
+img {
+        -webkit-filter: drop-shadow(5px 5px 5px #000000);
+        filter: drop-shadow(5px 5px 5px #000000);
+      }
+
+.center{
+  position: absolute;
+  top:  50%;
+  left: 27%;
+  transform: translate(-27%, -50%);
+  animation: fadeIn ease 1.2s;
+  -webkit-animation: fadeIn ease 1.2s;
+  -moz-animation: fadeIn ease 1.2s;
+  -o-animation: fadeIn ease 1.2s;
+  -ms-animation: fadeIn ease 1.2s;
+}
+p{
+  font-size: xx-large;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@media screen and (max-height: 50px) {
+  .column {
+    height: 100%;
+  }
+}
+
+button {
+    transition: all .2s ease;
+    font-family:'Montserrat', sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 1;
+    font-size: 40px;
+    background-color : transparent;
+    padding: 10px;
+    outline: none;
+    border: 0;
+    color: {{txt}};
+}
+button:hover {
+  cursor: pointer;
+  border-radius: 10px;
+    background-color: #00000030;
+    color: {{txt}};
+}
+
+.track{
+  position: fixed;
+  top:  52%;
+  left: 68%;
+  transform: translate(-68%, -52%);
+  animation: fadeIn ease 1.2s;
+  -webkit-animation: fadeIn ease 1.2s;
+  -moz-animation: fadeIn ease 1.2s;
+  -o-animation: fadeIn ease 1.2s;
+  -ms-animation: fadeIn ease 1.2s;
+  text-shadow: 1px 1px 5px {{txt_shadow}}, 1px 1px 5px {{txt_shadow}};
+}
+
+.menu{
+  float: right;
+  line-height: 0;
+  transition: all .2s ease;
+    text-transform: none;
+    text-align: none;
+    line-height: none;
+    font-size: large;
+    background-color : transparent;
+    padding-right: 1.5%;
+    outline: none;
+    border: 0;
+    text-shadow: 1px 1px 5px {{txt_shadow}}, 1px 1px 5px {{txt_shadow}};
+}
+
+.menu:hover{
+  cursor: pointer;
+  background-color: #00000000;
+  transform: scale(1.1);
+}
+
+#vertical-menu {
+  width: 85px;
+  float: right;
+  z-index: 1;
+  padding: 10px;
+  padding-top: 20px;
+  display: none;
+  animation: zoom-in-zoom-out 0.1s ease;
+  
+}
+
+#vertical-menu a {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: medium;
+  transition: all .2s ease;
+  text-transform: none;
+  color: {{txt}};
+}
+
+#vertical-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#fs{
+  font-size: medium;
+  text-transform: none;
+  padding: 0;
+  width: 85px;
+  line-height: 0;
+  height: 35px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.2);
+  text-shadow: 1px 1px 8px {{txt_shadow}}, 1px 1px 8px {{txt_shadow}};
+}
+
+#fs a{
+  background-color: transparent;
+}
+
+#fs:hover{
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+#fs a:hover{
+  background-color: transparent;
+}
+
+.fs:hover {
+  cursor: pointer;
+  background-color: #00000010;
+  color: white;
+}
+
+:fullscreen {
+  border: 0;
+}
+
+:-webkit-full-screen {
+  border: 0;
+}
+
+
+.media:hover{
+  cursor: pointer;
+}
+
+@keyframes zoom-in-zoom-out {
+  0% {
+    transform: scale(0, 0);
+  }
+  25% {
+    transform: scale(0.25, 0.25);
+  }
+  50% {
+    transform: scale(0.5, 0.5);
+  }
+  75% {
+    transform: scale(0.75, 0.75);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}
+}
+
+    </style>
+</head>
+
+<body onload="toggle()">
+
+  <button class="menu" onclick="toggle()"><h1 style="float: right;">⋮</h1></button>
+
+  <div id="vertical-menu">
+    <a href="/upload_image">Back</a><br>
+    <button id="fs" onclick="fs()"><a>Expand</a></button><br><br>
+    <a href="/gradient">Refresh</a><br>
+    <a href="mailto: aryanbhajanka204@gmail.com" target="_blank">Report</a><br>
+  </div>
+
+            <div class="center">
+                    <center>
+                        <img src="{{image}}" height="330" width="330" style="border-radius: 5%;"><br>
+                      </center>
+                    
+                  </div>
+
+                  <div class="track">
+                    <center>
+                  <h1 style="line-height: 48px;">{{track}}</h1>
+                    <p>{{artist}}</p>
+                    
+                    <h1 style="letter-spacing: 5px; line-height: 10px;">
+                      <form action="{{ url_for('custom')}}" method="POST">
+                      <input type = "submit" name = "submit" class="prev" value = "prev" onclick="ShowDiv()">
+                      <input type = "submit" name = "submit" class="pp" value = "pp" onclick="ShowDiv()">
+                      <input type = "submit" name = "submit" class="next" value = "next" onclick="ShowDiv()">
+                    </form>
+                    </h1>
+                    <div class="loader" id="loader"></div>
+                  </center>
+                  </div>
+</body>
+
+<script>
+
+window.addEventListener( "pageshow", function ( event ) {
+  var historyTraversal = event.persisted || 
+                         ( typeof window.performance != "undefined" && 
+                              window.performance.navigation.type === 2 );
+  if ( historyTraversal ) {
+    window.location.href = "/upload_image";
+  }
+});
+
+  (function() {
+    var mouseTimer = null, cursorVisible = true;
+
+    function disappearCursor() {
+        mouseTimer = null;
+        document.body.style.cursor = "none";
+        cursorVisible = false;
+    }
+
+    document.onmousemove = function() {
+        if (mouseTimer) {
+            window.clearTimeout(mouseTimer);
+        }
+        if (!cursorVisible) {
+            document.body.style.cursor = "default";
+            cursorVisible = true;
+        }
+        mouseTimer = window.setTimeout(disappearCursor, 1000);
+    };
+})();
+
+function toggle() {
+  var x = document.getElementById("vertical-menu");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+  function fs() {
+    var elem = document.documentElement;
+    if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+    toggle();
+  } else if (elem.webkitRequestFullscreen) {
+    elem.webkitRequestFullscreen();
+    toggle();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
+    toggle();
+  }
+}
+
+function ShowDiv() {
+    document.getElementById("loader").style.display = "block";
+    return true;
+}
+</script>
+</html>

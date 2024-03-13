@@ -1,8 +1,20 @@
 <html>
 <head>
     <title>Premium Required</title>
+    <link rel="icon" href="{{favicon}}" sizes="any" type="image/x-icon" data-preload="true">
+    <title>Visuafy - Premium Required</title>
 </head>
 <style>
+center{
+  animation: fadeIn ease 1.2s;
+  -webkit-animation: fadeIn ease 1.2s;
+  -moz-animation: fadeIn ease 1.2s;
+  -o-animation: fadeIn ease 1.2s;
+  -ms-animation: fadeIn ease 1.2s;
+  position: relative;
+  top: 8%;
+}
+
     .home {
   appearance: none;
   background-color: transparent;
@@ -41,14 +53,59 @@
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
 }
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}
+}
 </style>
 
-<body style="font-family:  -apple-system, BlinkMacSystemFont, sans-serif; padding-top: 5%;">
+<body style="font-family:  -apple-system, BlinkMacSystemFont, sans-serif;background-color: #FBCEB1;">
     <center>
-    <img src="https://img.freepik.com/premium-photo/broken-heart-vinyl-record_693588-2919.jpg?w=360" height="300px" width="300px">
+    <img src="https://images.fineartamerica.com/images/artworkimages/medium/3/broken-heart-lp-vinyl-record-flying-notes-filip-schpindel-transparent.png" height="380px" width="300px">
     <h1>Error 403 : Forbidden</h1>
-    <h3>Playback controls are for Spotify Premium users only</h3><br>
-    <a href="/"><button class="home">Home</button></a>
+    <h2>Playback controls are for Spotify Premium users only</h2><br>
+    <button class="home" onclick="history.back()">Back</button>
 </center>
 </body>
 

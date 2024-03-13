@@ -1,0 +1,112 @@
+<html>
+<head>
+    <title>Premium Required</title>
+    <link rel="icon" href="{{favicon}}" sizes="any" type="image/x-icon" data-preload="true">
+    <title>Visuafy - Error 500</title>
+</head>
+<style>
+center{
+  animation: fadeIn ease 1.2s;
+  -webkit-animation: fadeIn ease 1.2s;
+  -moz-animation: fadeIn ease 1.2s;
+  -o-animation: fadeIn ease 1.2s;
+  -ms-animation: fadeIn ease 1.2s;
+  position: relative;
+  top: 7%;
+}
+
+    .home {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 12%;
+  will-change: transform;
+  font-size: 1.5vw;
+}
+
+.home:disabled {
+  pointer-events: none;
+}
+
+.home:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+}
+}
+
+</style>
+
+<body style="font-family:  -apple-system, BlinkMacSystemFont, sans-serif; background-color: #FBCEB1;">
+    <center>
+    <img src="https://images.fineartamerica.com/images/artworkimages/medium/3/broken-heart-lp-vinyl-record-flying-notes-filip-schpindel-transparent.png" height="380px" width="300px">
+    <h1>Error 500 : Internal Server Error</h1>
+    <h2>The image you requested could not be processed.<br>Please use a different image.</h2><br>
+    <button class="home" onclick="history.back()">Back</button>
+</center>
+</body>
+
+</html>
