@@ -14,20 +14,20 @@ Turntable theme, as the name suggests, is an animated vinyl record player where 
 ## Custom Image
 Custom image theme provides users with the option to use any GIF or static image as a background for the visuliser. Visuafy features 12 beautiful GIF images which were specially chosen to make the visualiser feel as aesthetic as possible. The custom image theme also offers two player options, large and small.
 
-Upload Image:
+### Upload Image:
 ![alt text](https://github.com/aryanbhajanka/Visuafy/blob/main/screenshots/upload_image.png?raw=true)
 
-Large Player:<br>
+### Large Player:<br>
 ![alt text](https://github.com/aryanbhajanka/Visuafy/blob/main/screenshots/custom_large.png?raw=true)
 
-Small Player:
+### Small Player:
 ![alt text](https://github.com/aryanbhajanka/Visuafy/blob/main/screenshots/custom_small.png?raw=true)<br>
 
 ## Other Screenshots
-Sign In Page:
+### Sign In Page:
 ![alt text](https://github.com/aryanbhajanka/Visuafy/blob/main/screenshots/sign_in.png?raw=true)
 
-Home Page:
+### Home Page:
 ![alt text](https://github.com/aryanbhajanka/Visuafy/blob/main/screenshots/home.png?raw=true)<br>
 
 ## Note On Running The Program:
