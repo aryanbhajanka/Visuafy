@@ -12,8 +12,8 @@ import requests
 
 
 ssl._create_default_https_context = ssl._create_unverified_context
-os.environ['SPOTIPY_CLIENT_ID'] = 'ddf6900b2e464e84b0a248f05f623371'
-os.environ['SPOTIPY_CLIENT_SECRET'] = '144440d0062e42f0b48a3145cef0d4ee'
+os.environ['SPOTIPY_CLIENT_ID'] = 'SPOTIFY CLIENT ID HERE'
+os.environ['SPOTIPY_CLIENT_SECRET'] = 'SPOTIFY CLIENT SECRET HERE'
 os.environ['SPOTIPY_REDIRECT_URI'] = 'http://127.0.0.1:5000'
 
 
