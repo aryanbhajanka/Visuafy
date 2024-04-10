@@ -129,7 +129,7 @@ def gradient():
 
         dr = int(spotify.current_user_playing_track()["item"]["duration_ms"])
         pg = int(spotify.current_user_playing_track()["progress_ms"])
-        time = (dr-pg)/1000
+        time = ((dr-pg)/1000 + 0.5)
 
         if (spotify.current_playback()["actions"]["disallows"] == {'pausing': True}):
             time = '60'
@@ -205,7 +205,7 @@ def turntable():
 
         dr = int(spotify.current_user_playing_track()["item"]["duration_ms"])
         pg = int(spotify.current_user_playing_track()["progress_ms"])
-        time = (dr-pg)/1000
+        time = ((dr-pg)/1000 + 0.5)
         animation = '3s'
 
         if (spotify.current_playback()["actions"]["disallows"] == {'pausing': True}):
@@ -327,7 +327,7 @@ def custom():
 
         dr = int(spotify.current_user_playing_track()["item"]["duration_ms"])
         pg = int(spotify.current_user_playing_track()["progress_ms"])
-        time = (dr-pg)/1000
+        time = ((dr-pg)/1000 + 0.5)
         url = session["url"]
         ar = session["ar"]
 
