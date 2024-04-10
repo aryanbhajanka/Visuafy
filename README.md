@@ -35,3 +35,4 @@ Please note that for the program to work, you would require your own Spotify cli
 - open https://developer.spotify.com/dashboard/ , sign in and create an app.  
 - Click on 'Edit Settings' and set 'http://127.0.0.1:5000/' as a redirect URI.  
 - Finally, paste your Spotify client ID and secret on line 15 and 16 of main.py
+- You can contact me on aryanbhajanka204@gmail.com for further help or suggestions.
