@@ -1,7 +1,5 @@
 # Visuafy
 Visuafy is a Flask based visualiser and remote for Spotify which provides playback controls and different themes to choose from along with a custom image theme which allows users to upload their own image as a background. Visuafy offers 3 primary themes: gradient, turntable, and custom image, each of which are shown below.
-  
-**Screenshots:**
 
 **Gradient Theme**: A minimalistic, active gradient of colours, smartly extracted from the current playing song's artwork using the python library, colorthief. The program also decides the best suitable text colour by judging the overall pallet of the artwork such that the text is clearly visible.
 
@@ -21,13 +19,16 @@ Large:
 
 ![alt text](https://media.licdn.com/dms/image/v2/D4D2DAQFuJl3HTidnlw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1710346597893?e=1729407600&v=beta&t=GJm7OXmxYQsXfe2Tt_0HQLyFMTo5qykqaOaAxeegp4E)
 
-Uplaod Image Page:  
+**Uplaod Image Page**:  
+
 ![alt text](https://media.licdn.com/dms/image/v2/D4D2DAQGXZUxQUBJn9g/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1710346519150?e=1729407600&v=beta&t=_mFQgz0Ka9YafAmC2T7mU_9BDrhOPKxcMFc1ns528rU)
 
-Login Page:  
+**Login Page**:  
+
 ![alt text](https://media.licdn.com/dms/image/v2/D4D2DAQGvFGe7QTfOvg/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1710346461533?e=1729407600&v=beta&t=-BHQ8bLk1amd4AZPCkL9BZL3xC4v8Mj9fQiEN3826KA)
 
-Home Page:  
+**Home Page**:  
+
 ![alt text](https://media.licdn.com/dms/image/v2/D4D2DAQESElLnVJ97Ew/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1710346491578?e=1729407600&v=beta&t=4Dm1ZAmT_rP2YpCqyxxKkjUpsMzHeSNLNvAqzKyHpsA)  
 
   
