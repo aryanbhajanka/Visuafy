@@ -14,9 +14,11 @@ Visuafy is a Flask based visualiser and remote for Spotify which provides playba
 **Custom Image Theme**: Custom image theme provides users with the option to use any GIF or static image as a background for the visuliser. Visuafy features 12 beautiful GIF images which were specially chosen to make the visualiser feel as aesthetic as possible. The custom image theme also offers two player options, large and small.
 
 Small:
+
 ![alt text](https://media.licdn.com/dms/image/v2/D4D2DAQF9r23tqW8rZA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1728750284188?e=1729407600&v=beta&t=_5duRrQfpSmuLD_JSSFbgAGCWyeTc5TOAsvEp5A2nik)
 
 Large:  
+
 ![alt text](https://media.licdn.com/dms/image/v2/D4D2DAQFuJl3HTidnlw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1710346597893?e=1729407600&v=beta&t=GJm7OXmxYQsXfe2Tt_0HQLyFMTo5qykqaOaAxeegp4E)
 
 Uplaod Image Page:  
