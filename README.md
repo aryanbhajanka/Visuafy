@@ -1,18 +1,21 @@
 # Visuafy
 Visuafy is a Flask based visualiser and remote for Spotify which provides playback controls and different themes to choose from along with a custom image theme which allows users to upload their own image as a background. Visuafy offers 3 primary themes: gradient, turntable, and custom image, each of which are shown below.
   
-**Screenshots:**  
-  
-Gradient Theme: Gradient theme is a minimalistic, active gradient of colours, smartly extracted from the current playing song's artwork using the python library, colorthief. The program also decides the best suitable text colour by judging the overall pallet of the artwork such that the text is clearly visible.
+**Screenshots:**
+
+**Gradient Theme**: A minimalistic, active gradient of colours, smartly extracted from the current playing song's artwork using the python library, colorthief. The program also decides the best suitable text colour by judging the overall pallet of the artwork such that the text is clearly visible.
+
 ![alt text](https://media.licdn.com/dms/image/v2/D4D2DAQFYeq1imYr9wA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1710346542044?e=1729407600&v=beta&t=foVSo3ZZqz-Ny5YKc0vDyt2aPWXOU34au32eF2Xkr-0)  
   
-Turntable Theme:  
+**Turntable Theme**: Turntable theme, as the name suggests, is an animated vinyl record player where the record has the image of the current playing song's artwork.
 ![alt text](https://media.licdn.com/dms/image/v2/D4D2DAQGID5qa1sY-CA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1710346564920?e=1729407600&v=beta&t=r199AbyWxbrWIe-oUT0B1CkfHK-xkI68j4Kbld88YAk)
 
-Custom Theme (Small):  
+**Custom Image Theme**: Custom image theme provides users with the option to use any GIF or static image as a background for the visuliser. Visuafy features 12 beautiful GIF images which were specially chosen to make the visualiser feel as aesthetic as possible. The custom image theme also offers two player options, large and small.
+
+Small:
 ![alt text](https://media.licdn.com/dms/image/v2/D4D2DAQF9r23tqW8rZA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1728750284188?e=1729407600&v=beta&t=_5duRrQfpSmuLD_JSSFbgAGCWyeTc5TOAsvEp5A2nik)
 
-Custom Theme (Large):  
+Large:  
 ![alt text](https://media.licdn.com/dms/image/v2/D4D2DAQFuJl3HTidnlw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1710346597893?e=1729407600&v=beta&t=GJm7OXmxYQsXfe2Tt_0HQLyFMTo5qykqaOaAxeegp4E)
 
 Uplaod Image Page:  
