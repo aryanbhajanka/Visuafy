@@ -4,7 +4,7 @@ Visuafy is a Flask based visualiser and remote for Spotify which provides playba
 **Screenshots:**  
   
 Gradient Theme:  
-![alt text](https://i.ibb.co/0FSbn1G/Gradient.png)  
+![alt text](https://media.licdn.com/dms/image/v2/D4D2DAQFYeq1imYr9wA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1710346542044?e=1729407600&v=beta&t=foVSo3ZZqz-Ny5YKc0vDyt2aPWXOU34au32eF2Xkr-0)  
   
 Turntable Theme:  
 ![alt text](https://media.licdn.com/dms/image/v2/D4D2DAQGID5qa1sY-CA/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1710346564920?e=1729407600&v=beta&t=r199AbyWxbrWIe-oUT0B1CkfHK-xkI68j4Kbld88YAk)
