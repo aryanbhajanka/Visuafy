@@ -9,11 +9,12 @@ from urllib.request import urlopen
 from urllib.error import HTTPError
 import numpy
 import requests
+from PIL import UnidentifiedImageError
 
 
 ssl._create_default_https_context = ssl._create_unverified_context
-os.environ['SPOTIPY_CLIENT_ID'] = 'SPOTIFY CLIENT ID HERE'
-os.environ['SPOTIPY_CLIENT_SECRET'] = 'SPOTIFY CLIENT SECRET HERE'
+os.environ['SPOTIPY_CLIENT_ID'] = 'ddf6900b2e464e84b0a248f05f623371'
+os.environ['SPOTIPY_CLIENT_SECRET'] = '144440d0062e42f0b48a3145cef0d4ee'
 os.environ['SPOTIPY_REDIRECT_URI'] = 'http://127.0.0.1:5000'
 
 
@@ -249,7 +250,8 @@ def upload():
             
             try:
                 fd = urlopen(url)
-            except HTTPError:
+                
+            except HTTPError or UnidentifiedImageError:
                 return render_template('/error500.html', favicon=url_for('static', filename='V.ico'))
 
             f = io.BytesIO(fd.read())
@@ -317,8 +319,8 @@ def custom():
                 os.remove(file)
 
         t = spotify.current_user_playing_track()["item"]["name"]
-        if (len(t) > 45):
-            track =(t[0:45]+'...')
+        if (len(t) > 40):
+            track =(t[0:40]+'...')
         else:
             track = spotify.current_user_playing_track()["item"]["name"]
 
@@ -336,21 +338,21 @@ def custom():
             prev="https://i.ibb.co/RgfLRXZ/rewind-button.png"
             pp="https://i.ibb.co/ZVsQDZN/pause-play.png"
             next="https://i.ibb.co/grngnhm/forward-button.png"
-            txt_shadow = 'rgba(0, 0, 0, 0.5)'
-            shadow = ''
+            bg = 'rgba(35, 35, 35, 0.65)'
+            txt_shadow = '#000000'
 
         else:
             txt = '#000000'
             prev="https://cdn-icons-png.flaticon.com/128/2/2147.png"
             pp="https://cdn-icons-png.flaticon.com/128/5725/5725942.png"
             next="https://cdn-icons-png.flaticon.com/128/1/1371.png"
-            shadow = '#0004'
-            txt_shadow = 'rgba(255, 255, 255, 0.5)'
+            bg = 'rgba(220, 220, 220, 0.65)'
+            txt_shadow = '#FFFFFF'
 
         if (spotify.current_playback()["actions"]["disallows"] == {'pausing': True}):
             time = 'none'
 
-        return render_template(session["template"], url=url, track = track, artist = artist, image=image, time=time, prev=prev, pp=pp, next=next, txt=txt, shadow=shadow, txt_shadow=txt_shadow, favicon=url_for('static', filename='V.ico'))
+        return render_template(session["template"], url=url, track = track, artist = artist, image=image, time=time, prev=prev, pp=pp, next=next, txt=txt, favicon=url_for('static', filename='V.ico'), bg=bg, txt_shadow=txt_shadow)
 
     except TypeError or UnboundLocalError:
         track = "Your Player Is Idle"
@@ -362,13 +364,15 @@ def custom():
 
         if (sum(ar) < 430):
             txt = '#FFFFFF'
-            txt_shadow = 'rgba(0, 0, 0, 0.5)'
+            bg = 'rgba(35, 35, 35, 0.65)'
+            txt_shadow = '#000000'
 
         else:
             txt = '#000000'
-            txt_shadow = 'rgba(255, 255, 255, 0.5)'
+            bg = 'rgba(220, 220, 220, 0.65)'
+            txt_shadow = '#FFFFFF'
 
-        return render_template(session["template"], url=url, track = track, artist = artist, image=image, time=time, prev='', pp='', next='', txt=txt, txt_shadow=txt_shadow, favicon=url_for('static', filename='V.ico'))
+        return render_template(session["template"], url=url, track = track, artist = artist, image=image, time=time, prev='', pp='', next='', txt=txt, favicon=url_for('static', filename='V.ico'), bg=bg, txt_shadow=txt_shadow)
     
     except spotipy.exceptions.SpotifyException:
         return render_template('prem.html', favicon=url_for('static', filename='V.ico'))
@@ -381,4 +385,4 @@ def custom():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=5000)
+    app.run(debug=True, port=5000)

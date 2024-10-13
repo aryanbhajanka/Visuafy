@@ -9,6 +9,7 @@
 html, body{
   margin: 0;
         font-family:  -apple-system, BlinkMacSystemFont, sans-serif;
+        overflow: hidden;
         user-select: none;
         background-image: url('{{ url }}');
         background-position: center;
@@ -21,19 +22,17 @@ html, body{
         user-select: none;
         height: 100%;
         color: {{txt}};
-        text-shadow: 1px 1px 5px {{txt_shadow}}, 1px 1px 5px {{txt_shadow}};
+        
 }
 
 .prev{
   background:url("{{prev}}");
   background-size: cover;
   border: none;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   color: transparent;
-  -webkit-filter: drop-shadow(3px 3px 3px {{txt_shadow}});
-  filter: drop-shadow(3px 3px 3px {{txt_shadow}});
   transition: transform .1s;
 }
 
@@ -45,12 +44,10 @@ html, body{
   background:url("{{pp}}");
   background-size: cover;
   border: none;
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
   color: transparent;
-  -webkit-filter: drop-shadow(3px 3px 3px {{txt_shadow}});
-  filter: drop-shadow(3px 3px 3px {{txt_shadow}});
   transition: transform .1s;
 }
 
@@ -62,12 +59,10 @@ html, body{
   background:url("{{next}}");
   background-size: cover;
   border: none;
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
   color: transparent;
-  -webkit-filter: drop-shadow(3px 3px 3px {{txt_shadow}});
-  filter: drop-shadow(3px 3px 3px {{txt_shadow}});
   transition: transform .1s;
 }
 
@@ -76,10 +71,11 @@ html, body{
 }
 
 img {
-        -webkit-filter: drop-shadow(5px 5px 5px #000000);
-        filter: drop-shadow(5px 5px 5px #000000);
+        margin-right: 30px;
+        margin-top: 17px;
         margin-bottom: 13px;
-        border-radius: 5%;
+        border-radius: 7px;
+        overflow: hidden;
       }
 
 p{
@@ -135,7 +131,6 @@ button:hover {
     padding-right: 1.5%;
     outline: none;
     border: 0;
-    text-shadow: 1px 1px 5px {{txt_shadow}}, 1px 1px 5px {{txt_shadow}};
 }
 
 .menu:hover{
@@ -151,25 +146,26 @@ button:hover {
   padding: 10px;
   padding-top: 20px;
   display: none;
+  line-height: 0.7;
   animation: zoom-in-zoom-out 0.1s ease;
-  
 }
 
 #vertical-menu a {
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: {{bg}};
   display: block;
-  padding: 10px;
+  padding: 12px;
   text-decoration: none;
   border-radius: 8px;
   font-size: medium;
   transition: all .2s ease;
   text-transform: none;
+  backdrop-filter: blur(5px);
   color: {{txt}};
 }
 
 #vertical-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 #fs{
@@ -178,19 +174,19 @@ button:hover {
   padding: 0;
   width: 85px;
   line-height: 0;
-  height: 35px;
+  height: 38px;
   border-radius: 8px;
-  background-color: rgba(0, 0, 0, 0.2);
-  text-shadow: 1px 1px 8px {{txt_shadow}}, 1px 1px 8px {{txt_shadow}};
+  background-color: {{bg}};
 }
 
 #fs a{
   background-color: transparent;
   padding: 10px;
+  backdrop-filter: blur(5px);
 }
 
 #fs:hover{
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 #fs a:hover{
@@ -217,10 +213,18 @@ button:hover {
 }
 
 .content{
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
   position: relative;
+  flex-wrap: nowrap;
   top:  94%;
-  left: 2.2%;
-  width: 40%;
+  left: 1.8%;
+  float: left;
+  padding-left: 25px;
+  padding-right: 25px;
   transform: translate(2.2%, -94%);
   text-align: left;
   animation: fadeIn ease 1.2s;
@@ -228,7 +232,8 @@ button:hover {
   -moz-animation: fadeIn ease 1.2s;
   -o-animation: fadeIn ease 1.2s;
   -ms-animation: fadeIn ease 1.2s;
-  text-shadow: 1px 1px 5px {{txt_shadow}}, 1px 1px 5px {{txt_shadow}};
+  backdrop-filter: blur(8px);
+  background-color: {{bg}};
   
 }
 
@@ -310,12 +315,14 @@ button:hover {
   </div>
 
             <div class="content">
-                        <img src="{{image}}" height="200" width="200"><br>
+
+                      <img src="{{image}}" height="80" width="80">
                     
-                  <h1 style="margin: 0; padding: 0; font-size: 40px; padding-bottom: 5px;">{{track}}</h1>
-                    <p style="margin: 0; padding: 0; font-size: 30px;">{{artist}}</p>
+                  <h1 style="font-size: 25px; padding-right: 30px; padding-top: 15px;">{{track}}<br>
+                    <p style="font-size: 15px; margin-top: 5px;">{{artist}}</p></h1>
+                    
   
-                    <h1 style="letter-spacing: 5px; margin: 0; padding: 0;">
+                    <h1 style="letter-spacing: 5px; margin: 0; padding: 0; padding-top: 35px;">
                       <form action="{{ url_for('custom')}}" method="POST">
                       <input type = "submit" name = "submit" class="prev" value = "prev" onclick="ShowDiv()">
                       <input type = "submit" name = "submit" class="pp" value = "pp">
