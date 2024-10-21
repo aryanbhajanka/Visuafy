@@ -13,8 +13,8 @@ from PIL import UnidentifiedImageError
 
 
 ssl._create_default_https_context = ssl._create_unverified_context
-os.environ['SPOTIPY_CLIENT_ID'] = 'ddf6900b2e464e84b0a248f05f623371'
-os.environ['SPOTIPY_CLIENT_SECRET'] = '144440d0062e42f0b48a3145cef0d4ee'
+os.environ['SPOTIPY_CLIENT_ID'] = ''
+os.environ['SPOTIPY_CLIENT_SECRET'] = ''
 os.environ['SPOTIPY_REDIRECT_URI'] = 'http://127.0.0.1:5000'
 
 
