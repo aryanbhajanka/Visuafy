@@ -1,4 +1,4 @@
-_Spotify is yet to apporve my user quota extension so if you would like to use Visuafy, kindly email me at aryanbhajanka204@gmail.com with your Spotify username and registered email address._
+_Spotify is yet to apporve my user quota extension so if you would like to use Visuafy, kindly email me at aryanbhajanka204@gmail.com with your full name as per your Spotify account and registered email address._
 
 # Visuafy
 Visuafy is a Flask based visualiser and remote for Spotify which provides playback controls and different themes to choose from along with a custom image theme which allows users to upload their own image as a background. Visuafy offers 3 primary themes: gradient, turntable, and custom image, each of which are shown below.
