@@ -5,7 +5,7 @@ Visuafy is a Flask based visualiser and remote for Spotify which provides playba
 
 **Gradient Theme**: A minimalistic, active gradient of colours, smartly extracted from the current playing song's artwork using the python library, colorthief. The program also decides the best suitable text colour by judging the overall pallet of the artwork such that the text is clearly visible.
 
-![alt text](https://ibb.co/PrNtSRc)  
+![alt text]([https://ibb.co/PrNtSRc](https://i.ibb.co/JcKChNv/gradient.png))  
   
 **Turntable Theme**: Turntable theme, as the name suggests, is an animated vinyl record player where the record has the image of the current playing song's artwork.
 
