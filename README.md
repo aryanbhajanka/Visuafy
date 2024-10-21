@@ -31,7 +31,7 @@ Large:
 
 **Home Page**:  
 
-![alt text]([https://ibb.co/1s91jTL](https://i.ibb.co/ZHh57xV/home.png))  
+![alt text](https://i.ibb.co/ZHh57xV/home.png)  
 
   
 Please note that for the program to work, you would require your own Spotify client ID and secret.  
